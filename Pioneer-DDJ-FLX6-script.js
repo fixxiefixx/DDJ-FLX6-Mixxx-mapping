@@ -392,10 +392,14 @@ PioneerDDJFLX4.init = function() {
     }
     engine.makeConnection("[EffectRack1_EffectUnit1]", "focused_effect", PioneerDDJFLX4.toggleFxLight);
 
-    PioneerDDJFLX4.keepAliveTimer = engine.beginTimer(200, PioneerDDJFLX4.sendKeepAlive);
+    //PioneerDDJFLX4.keepAliveTimer = engine.beginTimer(200, PioneerDDJFLX4.sendKeepAlive,true);
 
     // query the controller for current control positions on startup
-    PioneerDDJFLX4.sendKeepAlive(); // the query seems to double as a keep alive message
+    var ControllerStatusSysex = [0xF0, 0x00, 0x20, 0x7F, 0x03, 0x01, 0xF7];
+    // After midi controller receive this Outbound Message request SysEx Message,
+    // midi controller will send the status of every item on the
+    // control surface. (Mixxx will be initialized with current values)
+    midi.sendSysexMsg(ControllerStatusSysex, ControllerStatusSysex.length);
 };
 
 //
