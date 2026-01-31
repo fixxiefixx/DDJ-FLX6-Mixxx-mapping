@@ -329,6 +329,8 @@ PioneerDDJFLX4.lastRotation = {
     "[Channel4]": 0
 };
 
+PioneerDDJFLX4.fxSelect = "[EffectRack1_EffectUnit1]";
+
 PioneerDDJFLX4.trackLoadedLED = function(value, group, _control) {
     midi.sendShortMsg(
         0x9F,
@@ -453,7 +455,18 @@ PioneerDDJFLX4.vuMeterUpdate = function(value, group) {
     }
 };
 
-
+PioneerDDJFLX4.fxSelected = function(channel, control, value, status, group){
+    console.log("fxSelected group: "+group+" status: "+status);
+    if(status === 0x7f)
+    {
+        PioneerDDJFLX4.fxSelect = group;
+    }
+    else
+    {
+        engine.setValue(group,"mix",0);
+        engine.setValue(group,"enabled", 0);
+    }
+};
 
 PioneerDDJFLX4.playPositionUpdate = function(value, group){
     var duration = engine.getValue(group,"duration");
