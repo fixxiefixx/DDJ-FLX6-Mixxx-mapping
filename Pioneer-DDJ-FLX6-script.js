@@ -322,6 +322,13 @@ PioneerDDJFLX4.highResMSB = {
     "[Channel4]": {}
 };
 
+PioneerDDJFLX4.lastRotation = {
+    "[Channel1]": 0,
+    "[Channel2]": 0,
+	"[Channel3]": 0,
+    "[Channel4]": 0
+};
+
 PioneerDDJFLX4.trackLoadedLED = function(value, group, _control) {
     midi.sendShortMsg(
         0x9F,
@@ -345,6 +352,13 @@ PioneerDDJFLX4.init = function() {
     engine.makeConnection("[Channel2]", "vu_meter", PioneerDDJFLX4.vuMeterUpdate);
 	engine.makeConnection("[Channel3]", "vu_meter", PioneerDDJFLX4.vuMeterUpdate);
     engine.makeConnection("[Channel4]", "vu_meter", PioneerDDJFLX4.vuMeterUpdate);
+
+    engine.makeConnection("[Channel1]", "playposition", PioneerDDJFLX4.playPositionUpdate);
+    engine.makeConnection("[Channel2]", "playposition", PioneerDDJFLX4.playPositionUpdate);
+	engine.makeConnection("[Channel3]", "playposition", PioneerDDJFLX4.playPositionUpdate);
+    engine.makeConnection("[Channel4]", "playposition", PioneerDDJFLX4.playPositionUpdate);
+
+    //
 
     PioneerDDJFLX4.toggleLight(PioneerDDJFLX4.lights.deck1.vuMeter, false);
     PioneerDDJFLX4.toggleLight(PioneerDDJFLX4.lights.deck2.vuMeter, false);
@@ -435,6 +449,38 @@ PioneerDDJFLX4.vuMeterUpdate = function(value, group) {
 
     case "[Channel4]":
         midi.sendShortMsg(0xB3, 0x02, newVal);
+        break;
+    }
+};
+
+
+
+PioneerDDJFLX4.playPositionUpdate = function(value, group){
+    var duration = engine.getValue(group,"duration");
+    //duration = 60 * 2;
+    var newVal = (value*duration*0x48*0.6075) % 0x48;
+    newVal = newVal < 0 ? newVal + 0x48 : newVal;
+    newVal += 1;
+
+    var oldVal = PioneerDDJFLX4.lastRotation[group];
+    if(oldVal == newVal)
+        return;
+    PioneerDDJFLX4.lastRotation[group] = newVal;
+
+    switch (group) {
+    case "[Channel1]":
+        midi.sendShortMsg(0xBB, 0x00, newVal);
+        break;
+
+    case "[Channel2]":
+        midi.sendShortMsg(0xBB, 0x01, newVal);
+        break;
+	case "[Channel3]":
+        midi.sendShortMsg(0xBB, 0x02, newVal);
+        break;
+
+    case "[Channel4]":
+        midi.sendShortMsg(0xBB, 0x03, newVal);
         break;
     }
 };
