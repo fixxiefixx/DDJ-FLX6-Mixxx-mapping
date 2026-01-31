@@ -329,7 +329,7 @@ PioneerDDJFLX4.lastRotation = {
     "[Channel4]": 0
 };
 
-PioneerDDJFLX4.fxSelect = "[EffectRack1_EffectUnit1]";
+PioneerDDJFLX4.fxSelect = "";
 
 PioneerDDJFLX4.trackLoadedLED = function(value, group, _control) {
     midi.sendShortMsg(
@@ -403,10 +403,14 @@ PioneerDDJFLX4.init = function() {
 	engine.makeConnection("[Channel3]", "loop_enabled", PioneerDDJFLX4.loopToggle);
     engine.makeConnection("[Channel4]", "loop_enabled", PioneerDDJFLX4.loopToggle);
 
+    
     for (i = 1; i <= 3; i++) {
         engine.makeConnection("[EffectRack1_EffectUnit1_Effect" + i +"]", "enabled", PioneerDDJFLX4.toggleFxLight);
+        engine.makeConnection("[EffectRack1_EffectUnit2_Effect" + i +"]", "enabled", PioneerDDJFLX4.toggleFxLight);
     }
-    engine.makeConnection("[EffectRack1_EffectUnit1]", "focused_effect", PioneerDDJFLX4.toggleFxLight);
+    
+    //engine.makeConnection("[EffectRack1_EffectUnit1]", "focused_effect", PioneerDDJFLX4.toggleFxLight);
+    
 
     //PioneerDDJFLX4.keepAliveTimer = engine.beginTimer(200, PioneerDDJFLX4.sendKeepAlive,true);
 
@@ -455,53 +459,75 @@ PioneerDDJFLX4.vuMeterUpdate = function(value, group) {
     }
 };
 
-PioneerDDJFLX4.fxSelected = function(channel, control, value, status, group){
-    console.log("fxSelected group: "+group+" status: "+status);
-    if(status === 0x7f)
+PioneerDDJFLX4.fxSelected = function(_channel, _control, value, status, group){
+    console.log("fxSelected group: "+group+" value: "+value);
+    if(value === 0x7f)
     {
+        var oldValue = 0;
+        if(PioneerDDJFLX4.fxSelect != "")
+        {
+            oldValue = engine.getValue(PioneerDDJFLX4.fxSelect,"enabled");
+            engine.setValue(PioneerDDJFLX4.fxSelect,"enabled",0);
+            
+        }
         PioneerDDJFLX4.fxSelect = group;
+        engine.setValue(group,"enabled",oldValue);
     }
     else
     {
         //engine.setValue(group,"mix",0);
-        engine.setValue(group,"enabled", 0);
+        //engine.setValue(group,"enabled", 0);
     }
 };
 
-PioneerDDJFLX4.chSelected = function(channel, control, value, status, group){
-    console.log("chSelected group: "+group+" status: "+status);
-    switch(group){
-        case "FX1 CH1":
-            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel1]_enable",value == 0x7F);
+PioneerDDJFLX4.fxEnabled= function(_channel, _control, value, status, group){
+    console.log("fxEnabled group: "+group+" value: "+value);
+    var effects = [
+        "[EffectRack1_EffectUnit1_Effect1]",
+        "[EffectRack1_EffectUnit1_Effect2]",
+        "[EffectRack1_EffectUnit1_Effect3]",
+        "[EffectRack1_EffectUnit2_Effect1]",
+        "[EffectRack1_EffectUnit2_Effect2]",
+        "[EffectRack1_EffectUnit2_Effect3]"
+    ];
+
+    var isAnEffectEnabled = false;
+    for(let i = 0; i<effects.length;i++)
+    {
+        if(engine.getValue(effects[i],"enabled") > 0)
+        {
+            isAnEffectEnabled = true;
             break;
-        case "FX2 CH1":
-            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel1]_enable",value == 0x7F);
-            break;
-        case "FX1 CH2":
-            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel2]_enable",value == 0x7F);
-            break;
-        case "FX2 CH2":
-            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel2]_enable",value == 0x7F);
-            break;
-        case "FX1 CH3":
-            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel3]_enable",value == 0x7F);
-            break;
-        case "FX2 CH3":
-            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel3]_enable",value == 0x7F);
-            break;
-        case "FX1 CH4":
-            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel4]_enable",value == 0x7F);
-            break;
-        case "FX2 CH4":
-            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel4]_enable",value == 0x7F);
-            break;
-        case "FX1 MST":
-            engine.setValue("[EffectRack1_EffectUnit1]","group_[Master]_enable",value == 0x7F);
-            break;
-        case "FX2 MST":
-            engine.setValue("[EffectRack1_EffectUnit2]","group_[Master]_enable",value == 0x7F);
-            break;
+        }
     }
+
+    if(value === 0x7f)
+    {
+        if(isAnEffectEnabled)
+        {
+            for(let i = 0; i<effects.length;i++)
+            {
+                if(engine.getValue(effects[i],"enabled") > 0)
+                    engine.setValue(effects[i],"enabled",0);
+            }
+            PioneerDDJFLX4.fxSelect = "";
+        }
+        else
+        {
+            PioneerDDJFLX4.fxSelect = group;
+
+            engine.setValue(group,"enabled",1);
+            
+        }
+    }
+
+};
+
+PioneerDDJFLX4.setGroupKey = function(_channel, _control, value, _status, group){
+    var groupKey = group.split(";");
+    if (groupKey.length < 2)
+        return;
+    engine.setValue(groupKey[0],groupKey[1],value > 0);
 };
 
 PioneerDDJFLX4.playPositionUpdate = function(value, group){
@@ -538,11 +564,36 @@ PioneerDDJFLX4.playPositionUpdate = function(value, group){
 // Effects
 //
 
-PioneerDDJFLX4.toggleFxLight = function(_value, _group, _control) {
-    const enabled = engine.getValue(PioneerDDJFLX4.focusedFxGroup(), "enabled");
-
-    PioneerDDJFLX4.toggleLight(PioneerDDJFLX4.lights.beatFx, enabled);
-    PioneerDDJFLX4.toggleLight(PioneerDDJFLX4.lights.shiftBeatFx, enabled);
+PioneerDDJFLX4.toggleFxLight = function(value, group, _control) {
+    //const enabled = engine.getValue(PioneerDDJFLX4.focusedFxGroup(), "enabled");
+    console.log("toggleFxLight group: "+group+" fxSelect: "+PioneerDDJFLX4.fxSelect);
+    var lightData = null;
+    switch(group)
+    {
+        case "[EffectRack1_EffectUnit1_Effect1]":
+            lightData = {status: 0x94, data1: 0x47};
+            break;
+        case "[EffectRack1_EffectUnit1_Effect2]":
+            lightData = {status: 0x94, data1: 0x48};
+            break;
+        case "[EffectRack1_EffectUnit1_Effect3]":
+            lightData = {status: 0x94, data1: 0x49};
+            break;
+        case "[EffectRack1_EffectUnit2_Effect1]":
+            lightData = {status: 0x95, data1: 0x47};
+            break;
+        case "[EffectRack1_EffectUnit2_Effect2]":
+            lightData = {status: 0x95, data1: 0x48};
+            break;
+        case "[EffectRack1_EffectUnit2_Effect3]":
+            lightData = {status: 0x95, data1: 0x49};
+            break;
+    }
+    if(lightData == null)
+        return; 
+    var enabled = value >= 0.5;
+    PioneerDDJFLX4.toggleLight(lightData, enabled);
+    //PioneerDDJFLX4.toggleLight(PioneerDDJFLX4.lights.shiftBeatFx, enabled);
 };
 
 PioneerDDJFLX4.focusedFxGroup = function() {

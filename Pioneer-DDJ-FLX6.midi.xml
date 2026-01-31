@@ -1222,8 +1222,8 @@
                 </options>
             </control>
             <control>
-                <group>FX1 CH1</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit1];group_[Channel1]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX1 CH1</description>
                 <status>0x94</status>
                 <midino>0x1C</midino>
@@ -1232,8 +1232,8 @@
                 </options>
             </control>
             <control>
-                <group>FX2 CH1</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit2];group_[Channel1]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX2 CH1</description>
                 <status>0x95</status>
                 <midino>0x1C</midino>
@@ -1242,8 +1242,8 @@
                 </options>
             </control>
             <control>
-                <group>FX1 CH2</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit1];group_[Channel2]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX1 CH2</description>
                 <status>0x94</status>
                 <midino>0x1D</midino>
@@ -1252,8 +1252,8 @@
                 </options>
             </control>
             <control>
-                <group>FX2 CH2</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit2];group_[Channel2]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX2 CH2</description>
                 <status>0x95</status>
                 <midino>0x1D</midino>
@@ -1262,8 +1262,8 @@
                 </options>
             </control>
             <control>
-                <group>FX1 MST</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit1];group_[Master]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX1 MST</description>
                 <status>0x94</status>
                 <midino>0x14</midino>
@@ -1272,8 +1272,8 @@
                 </options>
             </control>
             <control>
-                <group>FX2 MST</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit2];group_[Master]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX2 MST</description>
                 <status>0x95</status>
                 <midino>0x14</midino>
@@ -1322,8 +1322,8 @@
                 </options>
             </control>
             <control>
-                <group>FX1 CH3</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit1];group_[Channel3]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX1 CH3</description>
                 <status>0x94</status>
                 <midino>0x1E</midino>
@@ -1332,8 +1332,8 @@
                 </options>
             </control>
             <control>
-                <group>FX2 CH3</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit2];group_[Channel3]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX2 CH3</description>
                 <status>0x95</status>
                 <midino>0x1E</midino>
@@ -1342,8 +1342,8 @@
                 </options>
             </control>
             <control>
-                <group>FX1 CH4</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit1];group_[Channel4]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX1 CH4</description>
                 <status>0x94</status>
                 <midino>0x1F</midino>
@@ -1352,8 +1352,8 @@
                 </options>
             </control>
             <control>
-                <group>FX2 CH4</group>
-                <key>PioneerDDJFLX4.chSelected</key>
+                <group>[EffectRack1_EffectUnit2];group_[Channel4]_enable</group>
+                <key>PioneerDDJFLX4.setGroupKey</key>
                 <description>CH Select FX2 CH4</description>
                 <status>0x95</status>
                 <midino>0x1F</midino>
@@ -3276,26 +3276,6 @@
                 </options>
             </control>
             <control>
-                <group>[EffectRack1_EffectUnit1_Effect1]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 12 messages.</description>
-                <status>0x94</status>
-                <midino>0x47</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit2_Effect1]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 10 messages.</description>
-                <status>0x95</status>
-                <midino>0x47</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel2]</group>
                 <key>LoadSelectedTrack</key>
                 <description>LOAD (DECK2) - press - Load a Track into Deck 2</description>
@@ -3346,51 +3326,11 @@
                 </options>
             </control>
             <control>
-                <group>[EffectRack1_EffectUnit1_Effect2]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 13 messages.</description>
-                <status>0x94</status>
-                <midino>0x48</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit2_Effect2]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 10 messages.</description>
-                <status>0x95</status>
-                <midino>0x48</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel3]</group>
                 <key>LoadSelectedTrack</key>
                 <description>LOAD (DECK3) - press - Load a Track into Deck 1</description>
                 <status>0x96</status>
                 <midino>0x48</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit1_Effect3]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 12 messages.</description>
-                <status>0x94</status>
-                <midino>0x49</midino>
-                <options>
-                    <normal/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit2_Effect3]</group>
-                <key>enabled</key>
-                <description>MIDI Learned from 10 messages.</description>
-                <status>0x95</status>
-                <midino>0x49</midino>
                 <options>
                     <normal/>
                 </options>
@@ -4441,6 +4381,68 @@
                     <script-binding/>
                 </options>
             </control>
+
+            <control>
+                <group>[EffectRack1_EffectUnit1_Effect1]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX1-1</description>
+                <status>0x94</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1_Effect2]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX1-2</description>
+                <status>0x94</status>
+                <midino>0x48</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1_Effect3]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX1-3</description>
+                <status>0x94</status>
+                <midino>0x49</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit2_Effect1]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX2-1</description>
+                <status>0x95</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit2_Effect2]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX2-2</description>
+                <status>0x95</status>
+                <midino>0x48</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit2_Effect3]</group>
+                <key>PioneerDDJFLX4.fxEnabled</key>
+                <description>BFX FX2-3</description>
+                <status>0x95</status>
+                <midino>0x49</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+
         </controls>
         <outputs>
             <output>
