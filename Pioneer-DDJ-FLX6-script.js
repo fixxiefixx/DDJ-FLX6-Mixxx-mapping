@@ -751,7 +751,7 @@ PioneerDDJFLX4.jogTouch = function(channel, _control, value) {
     }
 
     if (value !== 0 && this.vinylMode) {
-        engine.scratchEnable(deckNum, 720*8, 33+1/3, this.alpha, this.beta);
+        engine.scratchEnable(deckNum, 720*10, 33+1/3, this.alpha, this.beta);
     } else {
         engine.scratchDisable(deckNum);
     }
