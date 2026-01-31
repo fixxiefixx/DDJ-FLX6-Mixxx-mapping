@@ -463,8 +463,44 @@ PioneerDDJFLX4.fxSelected = function(channel, control, value, status, group){
     }
     else
     {
-        engine.setValue(group,"mix",0);
+        //engine.setValue(group,"mix",0);
         engine.setValue(group,"enabled", 0);
+    }
+};
+
+PioneerDDJFLX4.chSelected = function(channel, control, value, status, group){
+    console.log("chSelected group: "+group+" status: "+status);
+    switch(group){
+        case "FX1 CH1":
+            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel1]_enable",value == 0x7F);
+            break;
+        case "FX2 CH1":
+            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel1]_enable",value == 0x7F);
+            break;
+        case "FX1 CH2":
+            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel2]_enable",value == 0x7F);
+            break;
+        case "FX2 CH2":
+            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel2]_enable",value == 0x7F);
+            break;
+        case "FX1 CH3":
+            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel3]_enable",value == 0x7F);
+            break;
+        case "FX2 CH3":
+            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel3]_enable",value == 0x7F);
+            break;
+        case "FX1 CH4":
+            engine.setValue("[EffectRack1_EffectUnit1]","group_[Channel4]_enable",value == 0x7F);
+            break;
+        case "FX2 CH4":
+            engine.setValue("[EffectRack1_EffectUnit2]","group_[Channel4]_enable",value == 0x7F);
+            break;
+        case "FX1 MST":
+            engine.setValue("[EffectRack1_EffectUnit1]","group_[Master]_enable",value == 0x7F);
+            break;
+        case "FX2 MST":
+            engine.setValue("[EffectRack1_EffectUnit2]","group_[Master]_enable",value == 0x7F);
+            break;
     }
 };
 
