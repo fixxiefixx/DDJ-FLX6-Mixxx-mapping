@@ -329,6 +329,9 @@ PioneerDDJFLX4.lastRotation = {
     "[Channel4]": 0
 };
 
+PioneerDDJFLX4.deckControlL = "[Channel1]";
+PioneerDDJFLX4.deckControlR = "[Channel2]";
+
 PioneerDDJFLX4.fxSelect = "";
 
 PioneerDDJFLX4.trackLoadedLED = function(value, group, _control) {
@@ -882,6 +885,83 @@ PioneerDDJFLX4.jogTurn = function(channel, _control, value, _status, group) {
     }
 };
 
+PioneerDDJFLX4.mergeFxTurn = function(channel, _control, value, _status, group) {
+    var diff = value - 64;
+    diff *= -0.05;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX4.deckControlL;
+            break;
+        case "R":
+            newGroup = PioneerDDJFLX4.deckControlR;
+            break;
+    }
+    if(newGroup == "")
+        return;
+
+    switch(newGroup)
+    {
+        case "[Channel1]":
+            newGroup = "[Channel3]";
+            break;
+        case "[Channel3]":
+            newGroup = "[Channel1]";
+            break;
+        case "[Channel2]":
+            newGroup = "[Channel4]";
+            break;
+        case "[Channel4]":
+            newGroup = "[Channel2]";
+            break;
+    }
+
+    engine.setValue(newGroup, "jog", diff * this.bendScale);
+};
+
+PioneerDDJFLX4.deckControlLPressed = function(channel, _control, value, _status, group) {
+    if(value > 0)
+        PioneerDDJFLX4.deckControlL = group;
+};
+
+PioneerDDJFLX4.deckControlRPressed = function(channel, _control, value, _status, group) {
+    if(value > 0)
+        PioneerDDJFLX4.deckControlR = group;
+};
+
+PioneerDDJFLX4.mergeEffectButtonPressed = function(channel, _control, value, _status, group) {
+    if(value == 0)
+        return;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX4.deckControlL;
+            break;
+        case "R":
+            newGroup = PioneerDDJFLX4.deckControlR;
+            break;
+    }
+    if(newGroup == "")
+        return;
+    switch(newGroup)
+    {
+        case "[Channel1]":
+            newGroup = "[Channel3]";
+            break;
+        case "[Channel3]":
+            newGroup = "[Channel1]";
+            break;
+        case "[Channel2]":
+            newGroup = "[Channel4]";
+            break;
+        case "[Channel4]":
+            newGroup = "[Channel2]";
+            break;
+    }
+    engine.setValue(newGroup,"play",engine.getValue(newGroup,"play") >= 0.5 ? 0 : 1);
+};
 
 PioneerDDJFLX4.jogSearch = function(_channel, _control, value, _status, group) {
     const newVal = (value - 64) * PioneerDDJFLX4.fastSeekScale;
