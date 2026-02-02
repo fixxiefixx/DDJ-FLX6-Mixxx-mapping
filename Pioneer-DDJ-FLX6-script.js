@@ -289,7 +289,8 @@ PioneerDDJFLX4.beta = PioneerDDJFLX4.alpha/32;
 
 // Multiplier for fast seek through track using SHIFT+JOGWHEEL
 PioneerDDJFLX4.fastSeekScale = 150;
-PioneerDDJFLX4.bendScale = 0.8;
+PioneerDDJFLX4.bendScale = 0.4;
+PioneerDDJFLX4.bendScaleMergeFxKnop = 0.2;
 
 PioneerDDJFLX4.tempoRanges = [0.06, 0.10, 0.16, 0.25];
 
@@ -917,7 +918,7 @@ PioneerDDJFLX4.mergeFxTurn = function(channel, _control, value, _status, group) 
             break;
     }
 
-    engine.setValue(newGroup, "jog", diff * this.bendScale);
+    engine.setValue(newGroup, "jog", diff * this.bendScaleMergeFxKnop);
 };
 
 PioneerDDJFLX4.deckControlLPressed = function(channel, _control, value, _status, group) {
