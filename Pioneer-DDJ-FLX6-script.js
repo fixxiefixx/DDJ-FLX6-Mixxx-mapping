@@ -534,6 +534,13 @@ PioneerDDJFLX6.setGroupKey = function(_channel, _control, value, _status, group)
     engine.setValue(groupKey[0],groupKey[1],value > 0);
 };
 
+PioneerDDJFLX6.setGroupKeyValue = function(_channel, _control, _value, _status, group){
+    var groupKeyValue = group.split(";");
+    if (groupKeyValue.length < 3)
+        return;
+    engine.setValue(groupKeyValue[0],groupKeyValue[1],parseFloat(groupKeyValue[2]));
+};
+
 PioneerDDJFLX6.playPositionUpdate = function(value, group){
     var duration = engine.getValue(group,"duration");
     //duration = 60 * 2;
