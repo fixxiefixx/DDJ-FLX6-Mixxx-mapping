@@ -359,10 +359,8 @@ PioneerDDJFLX6.mergeFxbeforeLoadedChainPreset = {
 };
 
 PioneerDDJFLX6.mergeFxChainPreset = {
-    "[Channel1]": 1,
-    "[Channel2]": 1,
-	"[Channel3]": 1,
-    "[Channel4]": 1
+    "L": 1,
+    "R": 1
 };
 
 
@@ -1056,7 +1054,7 @@ PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _st
            this.mergeFxbeforeLoadedChainPreset[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset");
            this.mergeFxBeforeEnabled[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","enabled");
 
-           engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+           engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[group]);
            engine.setValue("[QuickEffectRack1_"+newGroup+"]","enabled",1);
            // midi.sendShortMsg(0xB4,0x10,0x7F);
            this.startLEDBlink(group == "L" ? 0xB4 : 0xB5, 0x10);
@@ -1080,16 +1078,16 @@ PioneerDDJFLX6.mergeEffectSelectorPressed = function(channel, _control, value, _
     }
     if(newGroup == "")
         return;
-    let selector = this.mergeFxChainPreset[newGroup];
+    let selector = this.mergeFxChainPreset[group];
     selector = selector + 1
     if(selector > 4.00001)
     {
         selector = 1;
     }
-    this.mergeFxChainPreset[newGroup] = selector;
+    this.mergeFxChainPreset[group] = selector;
     if(this.mergeFxEnabled[newGroup])
     {
-        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[group]);
     }
 };
 
@@ -1108,16 +1106,16 @@ PioneerDDJFLX6.mergeEffectSelectorPressedReverse = function(channel, _control, v
     }
     if(newGroup == "")
         return;
-    let selector = this.mergeFxChainPreset[newGroup];
+    let selector = this.mergeFxChainPreset[group];
     selector = selector - 1
     if(selector < -0.00001)
     {
         selector = 4;
     }
-    this.mergeFxChainPreset[newGroup] = selector;
+    this.mergeFxChainPreset[group] = selector;
     if(this.mergeFxEnabled[newGroup])
     {
-        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[group]);
     }
 };
 
