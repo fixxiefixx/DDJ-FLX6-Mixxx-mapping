@@ -330,6 +330,42 @@ PioneerDDJFLX6.lastRotation = {
     "[Channel4]": 0
 };
 
+PioneerDDJFLX6.mergeFxEnabled = {
+    "[Channel1]": false,
+    "[Channel2]": false,
+	"[Channel3]": false,
+    "[Channel4]": false
+};
+
+PioneerDDJFLX6.mergeFxBeforeEnabled = {
+    "[Channel1]": false,
+    "[Channel2]": false,
+	"[Channel3]": false,
+    "[Channel4]": false
+};
+
+PioneerDDJFLX6.mergeFxBeforeValue = {
+    "[Channel1]": 0.5,
+    "[Channel2]": 0.5,
+	"[Channel3]": 0.5,
+    "[Channel4]": 0.5
+};
+
+PioneerDDJFLX6.mergeFxbeforeLoadedChainPreset = {
+    "[Channel1]": 0,
+    "[Channel2]": 0,
+	"[Channel3]": 0,
+    "[Channel4]": 0
+};
+
+PioneerDDJFLX6.mergeFxChainPreset = {
+    "[Channel1]": 1,
+    "[Channel2]": 1,
+	"[Channel3]": 1,
+    "[Channel4]": 1
+};
+
+
 PioneerDDJFLX6.deckControlL = "[Channel1]";
 PioneerDDJFLX6.deckControlR = "[Channel2]";
 
@@ -392,6 +428,7 @@ PioneerDDJFLX6.init = function() {
     engine.makeConnection("[Channel2]", "track_loaded", PioneerDDJFLX6.trackLoadedLED);
 	engine.makeConnection("[Channel3]", "track_loaded", PioneerDDJFLX6.trackLoadedLED);
     engine.makeConnection("[Channel4]", "track_loaded", PioneerDDJFLX6.trackLoadedLED);
+
 
     // play the "track loaded" animation on both decks at startup
     midi.sendShortMsg(0x9F, 0x00, 0x7F);
@@ -894,8 +931,16 @@ PioneerDDJFLX6.jogTurn = function(channel, _control, value, _status, group) {
 };
 
 PioneerDDJFLX6.mergeFxTurn = function(channel, _control, value, _status, group) {
-    var diff = value - 64;
-    diff *= -0.05;
+    var diff = 0;
+    if(value > 0x41)
+    {
+        diff = value - 127;
+    }
+    else
+    {
+        diff = value;
+    }
+    diff *= 0.5;
     var newGroup = "";
     switch(group)
     {
@@ -909,23 +954,42 @@ PioneerDDJFLX6.mergeFxTurn = function(channel, _control, value, _status, group) 
     if(newGroup == "")
         return;
 
-    switch(newGroup)
-    {
-        case "[Channel1]":
-            newGroup = "[Channel3]";
-            break;
-        case "[Channel3]":
-            newGroup = "[Channel1]";
-            break;
-        case "[Channel2]":
-            newGroup = "[Channel4]";
-            break;
-        case "[Channel4]":
-            newGroup = "[Channel2]";
-            break;
-    }
+    const mergeFxAsJogwheel = engine.getSetting('mergeFxAsJogwheel');
 
-    engine.setValue(newGroup, "jog", diff * this.bendScaleMergeFxKnop);
+    if(mergeFxAsJogwheel)
+    {
+        switch(newGroup)
+        {
+            case "[Channel1]":
+                newGroup = "[Channel3]";
+                break;
+            case "[Channel3]":
+                newGroup = "[Channel1]";
+                break;
+            case "[Channel2]":
+                newGroup = "[Channel4]";
+                break;
+            case "[Channel4]":
+                newGroup = "[Channel2]";
+                break;
+        }
+
+        engine.setValue(newGroup, "jog", diff * this.bendScaleMergeFxKnop);
+    }
+    else
+    {
+        //Use MergeFX knob rotation to rotate quick fx knob
+        if(this.mergeFxEnabled[newGroup])
+        {
+            let superValue = engine.getValue("[QuickEffectRack1_"+newGroup+"]","super1");
+            superValue += diff * 0.001;
+            if(diff < 0)
+                diff = 0;
+            if(diff > 1)
+                diff = 1;
+            engine.setValue("[QuickEffectRack1_"+newGroup+"]","super1",superValue);
+        }
+    }
 };
 
 PioneerDDJFLX6.deckControlLPressed = function(channel, _control, value, _status, group) {
@@ -953,22 +1017,108 @@ PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _st
     }
     if(newGroup == "")
         return;
-    switch(newGroup)
+
+    const mergeFxAsJogwheel = engine.getSetting('mergeFxAsJogwheel');
+    if(mergeFxAsJogwheel)
     {
-        case "[Channel1]":
-            newGroup = "[Channel3]";
+        switch(newGroup)
+        {
+            case "[Channel1]":
+                newGroup = "[Channel3]";
+                break;
+            case "[Channel3]":
+                newGroup = "[Channel1]";
+                break;
+            case "[Channel2]":
+                newGroup = "[Channel4]";
+                break;
+            case "[Channel4]":
+                newGroup = "[Channel2]";
+                break;
+        }
+        engine.setValue(newGroup,"play",engine.getValue(newGroup,"play") >= 0.5 ? 0 : 1);
+    }
+    else
+    {
+        let enabled = this.mergeFxEnabled[newGroup];
+        if(enabled)
+        {
+            engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxbeforeLoadedChainPreset[newGroup]);
+            engine.setValue("[QuickEffectRack1_"+newGroup+"]","super1",this.mergeFxBeforeValue[newGroup]);
+            engine.setValue("[QuickEffectRack1_"+newGroup+"]","enabled",this.mergeFxBeforeEnabled[newGroup]);
+            this.stopLEDBlink(group == "L" ? 0xB4 : 0xB5,0x10);
+            midi.sendShortMsg(group == "L" ? 0xB4 : 0xB5,0x10,0x7F);
+            this.mergeFxEnabled[newGroup] = false;
+        }
+        else
+        {
+           this.mergeFxBeforeValue[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","super1");
+           this.mergeFxbeforeLoadedChainPreset[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset");
+           this.mergeFxBeforeEnabled[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","enabled");
+
+           engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+           engine.setValue("[QuickEffectRack1_"+newGroup+"]","enabled",1);
+           // midi.sendShortMsg(0xB4,0x10,0x7F);
+           this.startLEDBlink(group == "L" ? 0xB4 : 0xB5, 0x10);
+           this.mergeFxEnabled[newGroup] = true;
+        }
+    }
+};
+
+PioneerDDJFLX6.mergeEffectSelectorPressed = function(channel, _control, value, _status, group) {
+    if(value == 0)
+        return;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX6.deckControlL;
             break;
-        case "[Channel3]":
-            newGroup = "[Channel1]";
-            break;
-        case "[Channel2]":
-            newGroup = "[Channel4]";
-            break;
-        case "[Channel4]":
-            newGroup = "[Channel2]";
+        case "R":
+            newGroup = PioneerDDJFLX6.deckControlR;
             break;
     }
-    engine.setValue(newGroup,"play",engine.getValue(newGroup,"play") >= 0.5 ? 0 : 1);
+    if(newGroup == "")
+        return;
+    let selector = this.mergeFxChainPreset[newGroup];
+    selector = selector + 1
+    if(selector > 4.00001)
+    {
+        selector = 1;
+    }
+    this.mergeFxChainPreset[newGroup] = selector;
+    if(this.mergeFxEnabled[newGroup])
+    {
+        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+    }
+};
+
+PioneerDDJFLX6.mergeEffectSelectorPressedReverse = function(channel, _control, value, _status, group) {
+    if(value == 0)
+        return;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX6.deckControlL;
+            break;
+        case "R":
+            newGroup = PioneerDDJFLX6.deckControlR;
+            break;
+    }
+    if(newGroup == "")
+        return;
+    let selector = this.mergeFxChainPreset[newGroup];
+    selector = selector - 1
+    if(selector < -0.00001)
+    {
+        selector = 4;
+    }
+    this.mergeFxChainPreset[newGroup] = selector;
+    if(this.mergeFxEnabled[newGroup])
+    {
+        engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[newGroup]);
+    }
 };
 
 PioneerDDJFLX6.jogSearch = function(_channel, _control, value, _status, group) {
@@ -1171,6 +1321,22 @@ PioneerDDJFLX6.startSamplerBlink = function(channel, control, group) {
 };
 
 PioneerDDJFLX6.stopSamplerBlink = function(channel, control) {
+    this.stopLEDBlink(channel, control);
+};
+
+PioneerDDJFLX6.startLEDBlink = function(channel, control, interval = 250) {
+    let val = 0x7f;
+
+    PioneerDDJFLX6.stopLEDBlink(channel, control);
+    PioneerDDJFLX6.timers[channel][control] = engine.beginTimer(interval, () => {
+        val = 0x7f - val;
+
+        // blink the appropriate LED
+        midi.sendShortMsg(channel, control, val);
+    });
+};
+
+PioneerDDJFLX6.stopLEDBlink = function(channel, control) {
     PioneerDDJFLX6.timers[channel] = PioneerDDJFLX6.timers[channel] || {};
 
     if (PioneerDDJFLX6.timers[channel][control] !== undefined) {

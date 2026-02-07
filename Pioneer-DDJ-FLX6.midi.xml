@@ -6,6 +6,20 @@
         <description>Midi Mapping for the Pioneer DDJ-FLX4 (based on DDJ-400 mapping)</description>
         <forums>https://mixxx.discourse.group/t/pioneer-ddj-flx4</forums>
     </info>
+    <settings>
+        <group label="MERGE FX knobs">
+            <row orientation="vertical">
+                <option variable="mergeFxAsJogwheel"
+                type="boolean"
+                default="false"
+                label="Merge FX knobs as jogwheel for corresponding hidden deck">
+                <description>
+                    Use Merge FX knobs as play/pause button and jogwheel for the corresponding hidden deck
+                </description>
+                </option>
+            </row>
+        </group>
+    </settings>
     <controller id="DDJ-FLX6">
         <scriptfiles>
             <file filename="Pioneer-DDJ-FLX6-script.js" functionprefix="PioneerDDJFLX6"/>
@@ -2331,6 +2345,47 @@
                     <script-binding/>
                 </options>
             </control>
+            <control>
+                <group>L</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressed</key>
+                <description>Merge Effect L Button</description>
+                <status>0x94</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>R</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressed</key>
+                <description>Merge Effect R Button</description>
+                <status>0x95</status>
+                <midino>0x2F</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>L</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
+                <description>Merge Effect L Button shift</description>
+                <status>0x94</status>
+                <midino>0x30</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>R</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
+                <description>Merge Effect R Button shift</description>
+                <status>0x95</status>
+                <midino>0x30</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+
             <control>
                 <group>[EqualizerRack1_[Channel1]_Effect1]</group>
                 <key>parameter1</key>
