@@ -1269,7 +1269,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel1];5</group>
+                <group>[Channel1];6</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x97</status>
@@ -1279,7 +1279,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel1];6</group>
+                <group>[Channel1];7</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x97</status>
@@ -1289,7 +1289,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel1];7</group>
+                <group>[Channel1];8</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x97</status>
@@ -1349,7 +1349,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel2];5</group>
+                <group>[Channel2];6</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x99</status>
@@ -1359,7 +1359,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel2];6</group>
+                <group>[Channel2];7</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x99</status>
@@ -1369,7 +1369,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel2];7</group>
+                <group>[Channel2];8</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x99</status>
@@ -1429,7 +1429,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel3];5</group>
+                <group>[Channel3];6</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9B</status>
@@ -1439,7 +1439,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel3];6</group>
+                <group>[Channel3];7</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9B</status>
@@ -1449,7 +1449,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel3];7</group>
+                <group>[Channel3];8</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9B</status>
@@ -1509,7 +1509,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4];5</group>
+                <group>[Channel4];6</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9D</status>
@@ -1519,7 +1519,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4];6</group>
+                <group>[Channel4];7</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9D</status>
@@ -1529,7 +1529,7 @@
                 </options>
             </control>
             <control>
-                <group>[Channel4];7</group>
+                <group>[Channel4];8</group>
                 <key>PioneerDDJFLX6.padFxPressed</key>
                 <description>Pressed PadFX button</description>
                 <status>0x9D</status>
