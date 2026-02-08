@@ -15,6 +15,8 @@
 //      * Beat Loop Mode
 //      * Beat Jump Mode
 //      * Sampler Mode
+//      * Merge Fx
+//      * Pad Fx
 //
 //  Custom (Mixxx specific mappings):
 //      * BeatFX: Assigned Effect Unit 1
@@ -37,13 +39,9 @@
 //
 //      * Secondary pad modes (trial attempts complex and too experimental)
 //        * Keyboard mode
-//        * Pad FX1
-//        * Pad FX2
-//        * Keyshift mode
 //
 //  Not implemented yet (but might be in the future):
-//      * Smart CFX
-//      * Smart fader
+//      * Keyboard mode
 
 var PioneerDDJFLX6 = {};
 
@@ -1041,27 +1039,86 @@ PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _st
         let enabled = this.mergeFxEnabled[newGroup];
         if(enabled)
         {
-            engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxbeforeLoadedChainPreset[newGroup]);
-            engine.setValue("[QuickEffectRack1_"+newGroup+"]","super1",this.mergeFxBeforeValue[newGroup]);
-            engine.setValue("[QuickEffectRack1_"+newGroup+"]","enabled",this.mergeFxBeforeEnabled[newGroup]);
-            this.stopLEDBlink(group == "L" ? 0xB4 : 0xB5,0x10);
-            midi.sendShortMsg(group == "L" ? 0xB4 : 0xB5,0x10,0x7F);
-            this.mergeFxEnabled[newGroup] = false;
+            this.stopMergeFx(group, newGroup);
         }
         else
         {
-           this.mergeFxBeforeValue[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","super1");
-           this.mergeFxbeforeLoadedChainPreset[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset");
-           this.mergeFxBeforeEnabled[newGroup] = engine.getValue("[QuickEffectRack1_"+newGroup+"]","enabled");
-
-           engine.setValue("[QuickEffectRack1_"+newGroup+"]","loaded_chain_preset",this.mergeFxChainPreset[group]);
-           engine.setValue("[QuickEffectRack1_"+newGroup+"]","enabled",1);
-           // midi.sendShortMsg(0xB4,0x10,0x7F);
-           this.startLEDBlink(group == "L" ? 0xB4 : 0xB5, 0x10);
-           this.mergeFxEnabled[newGroup] = true;
+            this.startMergeFx(group, newGroup, this.mergeFxChainPreset[group]);
         }
     }
 };
+
+PioneerDDJFLX6.padFxPressed = function(channel, control, value, status, group){
+    //if(value == 0)
+    //    return;
+    console.log("padFxPressed channel: "+channel+" control: "+control);
+    let groupPreset = group.split(";");
+    if(groupPreset.length < 2)
+        return;
+    let side = "";
+    switch (groupPreset[0]) {
+        case "[Channel1]":
+            side = "L";
+            break;
+        case "[Channel2]":
+            side = "R";
+            break;
+        case "[Channel3]":
+            side = "L";
+            break;
+        case "[Channel4]":
+            side = "R";
+            break;
+    }
+
+    if(side == "")
+        return;
+    let enabled = this.mergeFxEnabled[groupPreset[0]];
+    if(value > 0)
+    {
+        if(enabled)
+        {
+            //this.stopMergeFx(side, groupPreset[0]);
+            engine.setValue("[QuickEffectRack1_"+groupPreset[0]+"]","loaded_chain_preset",groupPreset[1]);
+        }
+        else
+        {
+            this.startMergeFx(side, groupPreset[0], groupPreset[1]);
+            engine.setValue("[QuickEffectRack1_"+groupPreset[0]+"]","super1",0.75);
+        }
+        this.startLEDBlink(status, control, 125);
+    }
+    else
+    {
+        if(enabled)
+        {
+            this.stopMergeFx(side,groupPreset[0]);
+        }
+        this.stopLEDBlink(status,control);
+    }
+
+}
+
+PioneerDDJFLX6.startMergeFx = function(side, group, preset){
+    this.mergeFxBeforeValue[group] = engine.getValue("[QuickEffectRack1_"+group+"]","super1");
+    this.mergeFxbeforeLoadedChainPreset[group] = engine.getValue("[QuickEffectRack1_"+group+"]","loaded_chain_preset");
+    this.mergeFxBeforeEnabled[group] = engine.getValue("[QuickEffectRack1_"+group+"]","enabled");
+
+    engine.setValue("[QuickEffectRack1_"+group+"]","loaded_chain_preset",preset);
+    engine.setValue("[QuickEffectRack1_"+group+"]","enabled",1);
+    // midi.sendShortMsg(0xB4,0x10,0x7F);
+    this.startLEDBlink(side == "L" ? 0xB4 : 0xB5, 0x10);
+    this.mergeFxEnabled[group] = true;
+}
+
+PioneerDDJFLX6.stopMergeFx = function(side, group){
+    engine.setValue("[QuickEffectRack1_"+group+"]","loaded_chain_preset",this.mergeFxbeforeLoadedChainPreset[group]);
+    engine.setValue("[QuickEffectRack1_"+group+"]","super1",this.mergeFxBeforeValue[group]);
+    engine.setValue("[QuickEffectRack1_"+group+"]","enabled",this.mergeFxBeforeEnabled[group]);
+    this.stopLEDBlink(side == "L" ? 0xB4 : 0xB5,0x10);
+    midi.sendShortMsg(side == "L" ? 0xB4 : 0xB5,0x10,0x7F);
+    this.mergeFxEnabled[group] = false;
+}
 
 PioneerDDJFLX6.mergeEffectSelectorPressed = function(channel, _control, value, _status, group) {
     if(value == 0)
@@ -1323,7 +1380,7 @@ PioneerDDJFLX6.stopSamplerBlink = function(channel, control) {
 };
 
 PioneerDDJFLX6.startLEDBlink = function(channel, control, interval = 250) {
-    let val = 0x7f;
+    let val = 0x00;
 
     PioneerDDJFLX6.stopLEDBlink(channel, control);
     PioneerDDJFLX6.timers[channel][control] = engine.beginTimer(interval, () => {
@@ -1341,6 +1398,7 @@ PioneerDDJFLX6.stopLEDBlink = function(channel, control) {
         engine.stopTimer(PioneerDDJFLX6.timers[channel][control]);
         PioneerDDJFLX6.timers[channel][control] = undefined;
     }
+    midi.sendShortMsg(channel, control, 0x00);
 };
 
 
