@@ -3885,6 +3885,27 @@
                 </options>
             </control>
             <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxLeftPressed</key>
+                <description>BEAT LEFT - press - select previous effect unit</description>
+                <status>0x95</status>
+                <midino>0x06</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxRightPressed</key>
+                <description>BEAT RIGHT - press - select next effect unit</description>
+                <status>0x95</status>
+                <midino>0x07</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+
+            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJFLX6.toggleLoopAdjustIn</key>
                 <description>SHIFT + LOOP IN (DECK1) - Loop in adjust (using jog wheel)</description>

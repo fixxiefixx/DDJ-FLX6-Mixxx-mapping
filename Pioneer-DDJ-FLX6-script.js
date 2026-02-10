@@ -547,7 +547,7 @@ PioneerDDJFLX6.fxEnabled= function(_channel, _control, value, status, group){
                 if(engine.getValue(effects[i],"enabled") > 0)
                     engine.setValue(effects[i],"enabled",0);
             }
-            PioneerDDJFLX6.fxSelect = "";
+            //PioneerDDJFLX6.fxSelect = "";
         }
         else
         {
@@ -686,13 +686,21 @@ PioneerDDJFLX6.beatFxSelectShiftPressed = function(_channel, _control, value) {
 PioneerDDJFLX6.beatFxLeftPressed = function(_channel, _control, value) {
     if (value === 0) { return; }
 
-    PioneerDDJFLX6.changeFocusedEffectBy(-1);
+    //PioneerDDJFLX6.changeFocusedEffectBy(-1);
+    if(this.fxSelect == "")
+        return;
+
+    engine.setValue(this.fxSelect,"effect_selector",-1);
 };
 
 PioneerDDJFLX6.beatFxRightPressed = function(_channel, _control, value) {
     if (value === 0) { return; }
 
-    PioneerDDJFLX6.changeFocusedEffectBy(1);
+    //PioneerDDJFLX6.changeFocusedEffectBy(1);
+    if(this.fxSelect == "")
+        return;
+    console.log("beatFxRightPressed fxSelected: "+this.fxSelect);
+    engine.setValue(this.fxSelect,"effect_selector",1);
 };
 
 PioneerDDJFLX6.beatFxOnOffPressed = function(_channel, _control, value) {
