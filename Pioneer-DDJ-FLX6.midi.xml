@@ -6,20 +6,6 @@
         <description>Midi Mapping for the Pioneer DDJ-FLX4 (based on DDJ-400 mapping)</description>
         <forums>https://mixxx.discourse.group/t/pioneer-ddj-flx4</forums>
     </info>
-    <settings>
-        <group label="MERGE FX knobs">
-            <row orientation="vertical">
-                <option variable="mergeFxAsJogwheel"
-                type="boolean"
-                default="false"
-                label="Merge FX knobs as jogwheel for corresponding hidden deck">
-                <description>
-                    Use Merge FX knobs as play/pause button and jogwheel for the corresponding hidden deck
-                </description>
-                </option>
-            </row>
-        </group>
-    </settings>
     <controller id="DDJ-FLX6">
         <scriptfiles>
             <file filename="Pioneer-DDJ-FLX6-script.js" functionprefix="PioneerDDJFLX6"/>
@@ -626,6 +612,26 @@
                 </options>
             </control>
             <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxLeftPressed</key>
+                <description>BEAT LEFT - press - select previous effect unit</description>
+                <status>0x94</status>
+                <midino>0x06</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxLeftPressed</key>
+                <description>BEAT LEFT - press - select previous effect unit</description>
+                <status>0x95</status>
+                <midino>0x06</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>hotcue_7_activate</key>
                 <description>PAD 7 (DECK1) HOT CUE MODE - press - set hotcue</description>
@@ -723,6 +729,26 @@
                 <midino>0x06</midino>
                 <options>
                     <fourteen-bit-msb/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxRightPressed</key>
+                <description>BEAT RIGHT - press - select next effect unit</description>
+                <status>0x94</status>
+                <midino>0x07</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.beatFxRightPressed</key>
+                <description>BEAT RIGHT - press - select next effect unit</description>
+                <status>0x95</status>
+                <midino>0x07</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -865,48 +891,6 @@
                     <script-binding/>
                 </options>
             </control>
-
-            <control>
-                <group>[Channel1]</group>
-                <key>PioneerDDJFLX6.deckControlLPressed</key>
-                <description>DeckControl CH1</description>
-                <status>0x90</status>
-                <midino>0x3C</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2]</group>
-                <key>PioneerDDJFLX6.deckControlRPressed</key>
-                <description>DeckControl CH2</description>
-                <status>0x91</status>
-                <midino>0x3C</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3]</group>
-                <key>PioneerDDJFLX6.deckControlLPressed</key>
-                <description>DeckControl CH3</description>
-                <status>0x92</status>
-                <midino>0x3C</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJFLX6.deckControlRPressed</key>
-                <description>DeckControl CH4</description>
-                <status>0x93</status>
-                <midino>0x3C</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
             <control>
                 <group>[Channel1]</group>
                 <key>play</key>
@@ -1128,6 +1112,46 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];1</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x10</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];1</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x10</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];1</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x10</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];1</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x10</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>loop_out</key>
                 <description>LOOP OUT (DECK1) - press - Set loop out</description>
@@ -1178,6 +1202,126 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];2</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x11</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];2</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x11</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];2</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x11</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];2</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x11</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];3</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x12</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];3</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x12</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];3</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x12</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];3</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x12</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];4</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x13</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];4</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x13</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];4</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x13</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];4</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x13</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>volume</key>
                 <description>CHANNELFADER - slider</description>
@@ -1217,328 +1361,6 @@
                     <fourteen-bit-msb/>
                 </options>
             </control>
-
-            <control>
-                <group>[Channel1];1</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x10</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];2</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x11</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];3</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x12</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];4</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x13</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];5</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x14</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];6</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x15</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];7</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x16</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];8</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x97</status>
-                <midino>0x17</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];1</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x10</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];2</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x11</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];3</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x12</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];4</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x13</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];5</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x14</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];6</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x15</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];7</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x16</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];8</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x99</status>
-                <midino>0x17</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];1</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x10</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];2</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x11</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];3</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x12</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];4</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x13</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];5</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x14</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];6</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x15</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];7</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x16</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];8</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9B</status>
-                <midino>0x17</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];1</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x10</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];2</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x11</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];3</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x12</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];4</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x13</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];5</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x14</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];6</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x15</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];7</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x16</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];8</group>
-                <key>PioneerDDJFLX6.padFxPressed</key>
-                <description>Pressed PadFX button</description>
-                <status>0x9D</status>
-                <midino>0x17</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
             <control>
                 <group>[EffectRack1_EffectUnit1];group_[Master]_enable</group>
                 <key>PioneerDDJFLX6.setGroupKey</key>
@@ -1555,6 +1377,166 @@
                 <description>CH Select FX2 MST</description>
                 <status>0x95</status>
                 <midino>0x14</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];5</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x14</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];5</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x14</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];5</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x14</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];5</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x14</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];6</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x15</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];6</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x15</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];6</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x15</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];6</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x15</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];7</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x16</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];7</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x16</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];7</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x16</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];7</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x16</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];8</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x97</status>
+                <midino>0x17</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];8</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x99</status>
+                <midino>0x17</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];8</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9B</status>
+                <midino>0x17</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];8</group>
+                <key>PioneerDDJFLX6.padFxPressed</key>
+                <description>Pressed PadFX button</description>
+                <status>0x9D</status>
+                <midino>0x17</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -2688,27 +2670,6 @@
                 </options>
             </control>
             <control>
-                <group>L</group>
-                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
-                <description>Merge Effect L Button shift</description>
-                <status>0x94</status>
-                <midino>0x30</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>R</group>
-                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
-                <description>Merge Effect R Button shift</description>
-                <status>0x95</status>
-                <midino>0x30</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
                 <group>[EqualizerRack1_[Channel1]_Effect1]</group>
                 <key>parameter1</key>
                 <description>EQ LOW - rotate</description>
@@ -2746,6 +2707,26 @@
                 <midino>0x2F</midino>
                 <options>
                     <fourteen-bit-lsb/>
+                </options>
+            </control>
+            <control>
+                <group>L</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
+                <description>Merge Effect L Button shift</description>
+                <status>0x94</status>
+                <midino>0x30</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>R</group>
+                <key>PioneerDDJFLX6.mergeEffectSelectorPressedReverse</key>
+                <description>Merge Effect R Button shift</description>
+                <status>0x95</status>
+                <midino>0x30</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3522,42 +3503,82 @@
             </control>
             <control>
                 <group>[Channel1]</group>
-                <key>PioneerDDJFLX6.quickJumpForward</key>
-                <description>CUE/LOOP CALL RIGHT + SHIFT (DECK1) - press - quick jump forwards</description>
+                <key>PioneerDDJFLX6.deckControlLPressed</key>
+                <description>DeckControl CH1</description>
                 <status>0x90</status>
-                <midino>0x3D</midino>
+                <midino>0x3C</midino>
                 <options>
                     <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Channel2]</group>
-                <key>PioneerDDJFLX6.quickJumpForward</key>
-                <description>CUE/LOOP CALL RIGHT + SHIFT (DECK2) - press - quick jump forwards</description>
+                <key>PioneerDDJFLX6.deckControlRPressed</key>
+                <description>DeckControl CH2</description>
                 <status>0x91</status>
-                <midino>0x3D</midino>
+                <midino>0x3C</midino>
                 <options>
                     <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Channel3]</group>
-                <key>PioneerDDJFLX6.quickJumpForward</key>
-                <description>CUE/LOOP CALL RIGHT + SHIFT (DECK3) - press - quick jump forwards</description>
+                <key>PioneerDDJFLX6.deckControlLPressed</key>
+                <description>DeckControl CH3</description>
                 <status>0x92</status>
-                <midino>0x3D</midino>
+                <midino>0x3C</midino>
                 <options>
                     <script-binding/>
                 </options>
             </control>
             <control>
                 <group>[Channel4]</group>
-                <key>PioneerDDJFLX6.quickJumpForward</key>
-                <description>CUE/LOOP CALL RIGHT + SHIFT (DECK4) - press - quick jump forwards</description>
+                <key>PioneerDDJFLX6.deckControlRPressed</key>
+                <description>DeckControl CH4</description>
+                <status>0x93</status>
+                <midino>0x3C</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>slip_enabled</key>
+                <description>MIDI Learned from 2 messages.</description>
+                <status>0x90</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>slip_enabled</key>
+                <description>MIDI Learned from 10 messages.</description>
+                <status>0x91</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>slip_enabled</key>
+                <description>MIDI Learned from 8 messages.</description>
+                <status>0x92</status>
+                <midino>0x3D</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>slip_enabled</key>
+                <description>MIDI Learned from 6 messages.</description>
                 <status>0x93</status>
                 <midino>0x3D</midino>
                 <options>
-                    <script-binding/>
+                    <normal/>
                 </options>
             </control>
             <control>
@@ -3651,6 +3672,42 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];4</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x40</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];4</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x40</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];4</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x40</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];4</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x40</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Library]</group>
                 <key>MoveVertical</key>
                 <description>BROWSE - rotate - Scroll tracklist/tree view</description>
@@ -3671,6 +3728,42 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];5</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x41</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];5</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x41</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];5</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x41</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];5</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x41</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Library]</group>
                 <key>MoveFocusBackward</key>
                 <description>BROWSE +SHIFT - press - Move cursor between track list and tree view</description>
@@ -3681,6 +3774,150 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];6</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x42</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];6</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x42</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];6</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x42</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];6</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x42</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];7</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x43</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];7</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x43</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];7</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x43</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];7</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x43</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];0</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x44</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];0</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x44</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];0</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x44</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];0</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x44</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];1</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x45</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];1</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x45</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];1</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x45</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];1</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x45</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>LoadSelectedTrack</key>
                 <description>LOAD (DECK1) - press - Load a Track into Deck 1</description>
@@ -3688,6 +3925,42 @@
                 <midino>0x46</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];2</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x46</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];2</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x46</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];2</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x46</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];2</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x46</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3762,6 +4035,42 @@
                 <midino>0x47</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];3</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x97</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];3</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x99</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];3</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9B</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];3</group>
+                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
+                <status>0x9D</status>
+                <midino>0x47</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3864,47 +4173,6 @@
                     <normal/>
                 </options>
             </control>
-            <control>
-                <group>[EffectRack1_EffectUnit1]</group>
-                <key>PioneerDDJFLX6.beatFxLeftPressed</key>
-                <description>BEAT LEFT - press - select previous effect unit</description>
-                <status>0x94</status>
-                <midino>0x06</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit1]</group>
-                <key>PioneerDDJFLX6.beatFxRightPressed</key>
-                <description>BEAT RIGHT - press - select next effect unit</description>
-                <status>0x94</status>
-                <midino>0x07</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit1]</group>
-                <key>PioneerDDJFLX6.beatFxLeftPressed</key>
-                <description>BEAT LEFT - press - select previous effect unit</description>
-                <status>0x95</status>
-                <midino>0x06</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[EffectRack1_EffectUnit1]</group>
-                <key>PioneerDDJFLX6.beatFxRightPressed</key>
-                <description>BEAT RIGHT - press - select next effect unit</description>
-                <status>0x95</status>
-                <midino>0x07</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
             <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJFLX6.toggleLoopAdjustIn</key>
@@ -4066,6 +4334,24 @@
                 </options>
             </control>
             <control>
+                <group>[Channel3];pitch;4</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x50</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;4</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x50</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJFLX6.cueLoopCallLeft</key>
                 <description>CUE/LOOP CALL LEFT (DECK1) - press - half active loop</description>
@@ -4101,6 +4387,42 @@
                 <description>CUE/LOOP CALL LEFT (DECK4) - press - half active loop</description>
                 <status>0x93</status>
                 <midino>0x51</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;5</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x51</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;5</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x51</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;6</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x52</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;6</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x52</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -4146,6 +4468,24 @@
                 </options>
             </control>
             <control>
+                <group>[Channel3];pitch;7</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x53</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;7</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x53</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[Channel1]</group>
                 <key>pfl</key>
                 <description>CUE Channel - press - toggle Headphone Cue</description>
@@ -4183,6 +4523,78 @@
                 <midino>0x54</midino>
                 <options>
                     <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;0</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x54</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;0</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x54</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;1</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x55</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;1</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x55</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;2</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x56</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;2</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x56</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3];pitch;3</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9B</status>
+                <midino>0x57</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4];pitch;3</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x9D</status>
+                <midino>0x57</midino>
+                <options>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -4885,112 +5297,11 @@
                     <script-binding/>
                 </options>
             </control>
-
-            <control>
-                <group>[Channel1];pitch;0</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x74</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;1</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x75</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;2</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x76</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;3</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x77</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
             <control>
                 <group>[Channel1];pitch;4</group>
                 <key>PioneerDDJFLX6.setGroupKeyValue</key>
                 <status>0x97</status>
                 <midino>0x70</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;5</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x71</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;6</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x72</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];pitch;7</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x97</status>
-                <midino>0x73</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel2];pitch;0</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x74</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];pitch;1</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x75</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];pitch;2</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x76</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];pitch;3</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -5004,472 +5315,6 @@
                     <script-binding/>
                 </options>
             </control>
-            <control>
-                <group>[Channel2];pitch;5</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x71</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];pitch;6</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x72</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];pitch;7</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x99</status>
-                <midino>0x73</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel3];pitch;0</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x54</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;1</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x55</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;2</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x56</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;3</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x57</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;4</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x50</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;5</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x51</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;6</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x52</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];pitch;7</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9B</status>
-                <midino>0x53</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel4];pitch;0</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x54</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;1</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x55</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;2</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x56</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;3</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x57</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;4</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x50</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;5</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x51</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;6</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x52</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];pitch;7</group>
-                <key>PioneerDDJFLX6.setGroupKeyValue</key>
-                <status>0x9D</status>
-                <midino>0x53</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel1];0</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x44</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];1</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x45</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];2</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x46</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];3</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x47</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];4</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x40</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];5</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x41</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];6</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x42</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1];7</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x97</status>
-                <midino>0x43</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel2];0</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x44</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];1</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x45</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];2</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x46</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];3</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x47</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];4</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x40</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];5</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x41</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];6</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x42</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2];7</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x99</status>
-                <midino>0x43</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel3];0</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x44</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];1</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x45</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];2</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x46</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];3</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x47</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];4</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x40</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];5</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x41</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];6</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x42</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3];7</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9B</status>
-                <midino>0x43</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
-            <control>
-                <group>[Channel4];0</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x44</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];1</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x45</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];2</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x46</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];3</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x47</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];4</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x40</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];5</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x41</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];6</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x42</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4];7</group>
-                <key>PioneerDDJFLX6.keyboardButtonPressed</key>
-                <status>0x9D</status>
-                <midino>0x43</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect2]</group>
                 <key>PioneerDDJFLX6.fxSelected</key>
@@ -5489,6 +5334,24 @@
                 </options>
             </control>
             <control>
+                <group>[Channel1];pitch;5</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x71</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;5</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x71</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
                 <group>[EffectRack1_EffectUnit1_Effect3]</group>
                 <key>PioneerDDJFLX6.fxSelected</key>
                 <status>0x94</status>
@@ -5502,6 +5365,114 @@
                 <key>PioneerDDJFLX6.fxSelected</key>
                 <status>0x95</status>
                 <midino>0x72</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;6</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x72</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;6</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x72</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;7</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x73</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;7</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x73</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;0</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x74</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;0</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x74</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;1</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x75</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;1</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x75</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;2</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x76</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;2</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x76</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1];pitch;3</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x97</status>
+                <midino>0x77</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2];pitch;3</group>
+                <key>PioneerDDJFLX6.setGroupKeyValue</key>
+                <status>0x99</status>
+                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>
