@@ -560,6 +560,16 @@ PioneerDDJFLX6.fxEnabled= function(_channel, _control, value, status, group){
 
 };
 
+PioneerDDJFLX6.keyboardButtonPressed = function(_channel, _control, value, _status, group){
+    if(value == 0)
+        return;
+    const groupPitch = group.split(";");
+    if(groupPitch.length < 2)
+        return;
+    engine.setValue(groupPitch[0], "cue_goto", 1);
+    engine.setValue(groupPitch[0], "pitch", parseFloat(groupPitch[1]));
+};
+
 PioneerDDJFLX6.setGroupKey = function(_channel, _control, value, _status, group){
     var groupKey = group.split(";");
     if (groupKey.length < 2)
