@@ -17,6 +17,7 @@
 //      * Sampler Mode
 //      * Merge Fx
 //      * Pad Fx
+//      * Keyboard Mode
 //
 //  Custom (Mixxx specific mappings):
 //      * BeatFX: Assigned Effect Unit 1
@@ -38,10 +39,9 @@
 //        * CUE/LOOP CALL - memory & delete (complex and not useful. Hot cues are sufficient)
 //
 //      * Secondary pad modes (trial attempts complex and too experimental)
-//        * Keyboard mode
 //
 //  Not implemented yet (but might be in the future):
-//      * Keyboard mode
+//      * Sample Scratch Mode
 
 var PioneerDDJFLX6 = {};
 
