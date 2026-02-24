@@ -1183,7 +1183,7 @@ PioneerDDJFLX6.mergeEffectSelectorPressedReverse = function(channel, _control, v
         return;
     let selector = this.mergeFxChainPreset[group];
     selector = selector - 1
-    if(selector < -0.00001)
+    if(selector <= 0.00001)
     {
         selector = 4;
     }
