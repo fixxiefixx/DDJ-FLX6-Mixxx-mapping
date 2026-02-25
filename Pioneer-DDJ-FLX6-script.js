@@ -1480,6 +1480,12 @@ PioneerDDJFLX6.shutdown = function() {
 	PioneerDDJFLX6.setReloopLight(0x92, 0x00);
     PioneerDDJFLX6.setReloopLight(0x93, 0x00);
 
+    // turn off jogwheel lights
+    midi.sendShortMsg(0xBB, 0x00, 0x00);
+    midi.sendShortMsg(0xBB, 0x01, 0x00);
+    midi.sendShortMsg(0xBB, 0x02, 0x00);
+    midi.sendShortMsg(0xBB, 0x03, 0x00);
+
     // stop any flashing lights
     PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.beatFx, false);
     PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.shiftBeatFx, false);
