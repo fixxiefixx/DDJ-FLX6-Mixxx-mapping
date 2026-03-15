@@ -4258,7 +4258,7 @@
                 <key>PioneerDDJFLX6.toggleLoopAdjustOut</key>
                 <description>SHIFT + LOOP OUT (DECK1) - Loop out adjust (using jog wheel)</description>
                 <status>0x90</status>
-                <midino>0x4E</midino>
+                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -4268,7 +4268,7 @@
                 <key>PioneerDDJFLX6.toggleLoopAdjustOut</key>
                 <description>SHIFT + LOOP OUT (DECK2) - Loop out adjust (using jog wheel)</description>
                 <status>0x91</status>
-                <midino>0x4E</midino>
+                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -4278,7 +4278,7 @@
                 <key>PioneerDDJFLX6.toggleLoopAdjustOut</key>
                 <description>SHIFT + LOOP OUT (DECK3) - Loop out adjust (using jog wheel)</description>
                 <status>0x92</status>
-                <midino>0x4E</midino>
+                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -4288,7 +4288,7 @@
                 <key>PioneerDDJFLX6.toggleLoopAdjustOut</key>
                 <description>SHIFT + LOOP OUT (DECK4) - Loop out adjust (using jog wheel)</description>
                 <status>0x93</status>
-                <midino>0x4E</midino>
+                <midino>0x77</midino>
                 <options>
                     <script-binding/>
                 </options>

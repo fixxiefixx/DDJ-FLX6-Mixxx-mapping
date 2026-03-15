@@ -924,14 +924,21 @@ PioneerDDJFLX6.jogTurn = function(channel, _control, value, _status, group) {
 
     // loop_in / out adjust
     const loopEnabled = engine.getValue(group, "loop_enabled");
+    const minLoopRange = 1024;
     if (loopEnabled > 0) {
         if (PioneerDDJFLX6.loopAdjustIn[channel]) {
+            const loopEndPosition = engine.getValue(group, "loop_end_position");
             newVal = newVal * PioneerDDJFLX6.loopAdjustMultiply + engine.getValue(group, "loop_start_position");
+            if (newVal > loopEndPosition - minLoopRange)
+                newVal = loopEndPosition - minLoopRange;
             engine.setValue(group, "loop_start_position", newVal);
             return;
         }
         if (PioneerDDJFLX6.loopAdjustOut[channel]) {
+            const loopStartPosition = engine.getValue(group, "loop_start_position");
             newVal = newVal * PioneerDDJFLX6.loopAdjustMultiply + engine.getValue(group, "loop_end_position");
+            if (newVal < loopStartPosition + minLoopRange)
+                newVal = loopStartPosition + minLoopRange;
             engine.setValue(group, "loop_end_position", newVal);
             return;
         }
