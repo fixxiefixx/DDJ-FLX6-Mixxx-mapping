@@ -5742,7 +5742,7 @@
                 <group>[Channel1]</group>
                 <key>sync_enabled</key>
                 <status>0x90</status>
-                <midino>0x5C</midino>
+                <midino>0x58</midino>
                 <minimum>0.5</minimum>
             </output>
             <output>
@@ -6022,7 +6022,7 @@
                 <group>[Channel2]</group>
                 <key>sync_enabled</key>
                 <status>0x91</status>
-                <midino>0x5C</midino>
+                <midino>0x58</midino>
                 <minimum>0.5</minimum>
             </output>
             <output>
@@ -6302,7 +6302,7 @@
                 <group>[Channel3]</group>
                 <key>sync_enabled</key>
                 <status>0x92</status>
-                <midino>0x5C</midino>
+                <midino>0x58</midino>
                 <minimum>0.5</minimum>
             </output>
             <output>
@@ -6581,6 +6581,34 @@
             <output>
                 <group>[Channel4]</group>
                 <key>sync_enabled</key>
+                <status>0x93</status>
+                <midino>0x58</midino>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <group>[Channel1]</group>
+                <key>sync_leader</key>
+                <status>0x90</status>
+                <midino>0x5C</midino>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <group>[Channel2]</group>
+                <key>sync_leader</key>
+                <status>0x91</status>
+                <midino>0x5C</midino>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <group>[Channel3]</group>
+                <key>sync_leader</key>
+                <status>0x92</status>
+                <midino>0x5C</midino>
+                <minimum>0.5</minimum>
+            </output>
+            <output>
+                <group>[Channel4]</group>
+                <key>sync_leader</key>
                 <status>0x93</status>
                 <midino>0x5C</midino>
                 <minimum>0.5</minimum>
