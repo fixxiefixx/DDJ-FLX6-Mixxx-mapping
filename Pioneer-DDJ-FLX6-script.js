@@ -1013,6 +1013,44 @@ PioneerDDJFLX6.mergeFxTurn = function(channel, _control, value, _status, group) 
     }
 };
 
+PioneerDDJFLX6.mergeFxTurnShift = function(channel, _control, value, _status, group) {
+    var diff = 0;
+    if(value > 0x41)
+    {
+        diff = value - 127;
+    }
+    else
+    {
+        diff = value;
+    }
+    diff *= 0.5;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX6.deckControlL;
+            break;
+        case "R":
+            newGroup = PioneerDDJFLX6.deckControlR;
+            break;
+    }
+    if(newGroup == "")
+        return;
+
+
+
+    let superValue = engine.getValue(newGroup,"pitch");
+    superValue += diff * 0.02;
+    if(superValue < -12.0)
+        superValue = -12.0;
+    if(superValue > 12.0)
+        superValue = 12.0;
+    //console.log("adjusting pitch to " + superValue);
+    engine.setValue(newGroup,"pitch",superValue);
+
+
+};
+
 PioneerDDJFLX6.deckControlLPressed = function(channel, _control, value, _status, group) {
     if(value > 0)
         PioneerDDJFLX6.deckControlL = group;
@@ -1071,6 +1109,28 @@ PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _st
             this.startMergeFx(group, newGroup, this.mergeFxChainPreset[group]);
         }
     }
+};
+
+PioneerDDJFLX6.mergeEffectButtonPressedShift = function(channel, _control, value, _status, group) {
+    if(value == 0)
+        return;
+    var newGroup = "";
+    switch(group)
+    {
+        case "L":
+            newGroup = PioneerDDJFLX6.deckControlL;
+            break;
+        case "R":
+            newGroup = PioneerDDJFLX6.deckControlR;
+            break;
+    }
+    if(newGroup == "")
+        return;
+
+
+
+    engine.setValue(newGroup, "pitch", 0);
+
 };
 
 PioneerDDJFLX6.padFxPressed = function(channel, control, value, status, group){

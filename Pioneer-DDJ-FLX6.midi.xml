@@ -891,6 +891,28 @@
                     <script-binding/>
                 </options>
             </control>
+
+            <control>
+                <group>L</group>
+                <key>PioneerDDJFLX6.mergeFxTurnShift</key>
+                <description>MergeFX Turn with shift key</description>
+                <status>0xB4</status>
+                <midino>0x28</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>R</group>
+                <key>PioneerDDJFLX6.mergeFxTurnShift</key>
+                <description>MergeFX Turn with shift key</description>
+                <status>0xB5</status>
+                <midino>0x28</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+
             <control>
                 <group>[Channel1]</group>
                 <key>play</key>
@@ -2649,6 +2671,28 @@
                     <script-binding/>
                 </options>
             </control>
+
+            <control>
+                <group>L</group>
+                <key>PioneerDDJFLX6.mergeEffectButtonPressedShift</key>
+                <description>Merge Effect L Button</description>
+                <status>0x94</status>
+                <midino>0x31</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>R</group>
+                <key>PioneerDDJFLX6.mergeEffectButtonPressedShift</key>
+                <description>Merge Effect R Button</description>
+                <status>0x95</status>
+                <midino>0x31</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+
             <control>
                 <group>L</group>
                 <key>PioneerDDJFLX6.mergeEffectSelectorPressed</key>
