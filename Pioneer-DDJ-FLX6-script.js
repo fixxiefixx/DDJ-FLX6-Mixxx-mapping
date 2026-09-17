@@ -1053,17 +1053,43 @@ PioneerDDJFLX6.mergeFxTurnShift = function(channel, _control, value, _status, gr
 
 PioneerDDJFLX6.deckControlLPressed = function(channel, _control, value, _status, group) {
     if(value > 0)
+    {
+        let oldGroup = PioneerDDJFLX6.deckControlL;
         PioneerDDJFLX6.deckControlL = group;
+        if(this.mergeFxEnabled[group] && !this.mergeFxEnabled[oldGroup])
+        {
+            this.startLEDBlink(0xB4, 0x10);
+        }
+        else if(!this.mergeFxEnabled[group] && this.mergeFxEnabled[oldGroup])
+        {
+            this.stopLEDBlink(0xB4, 0x10);
+            midi.sendShortMsg(0xB4, 0x10,0x7F);
+        }
+
+    }
 };
 
 PioneerDDJFLX6.deckControlRPressed = function(channel, _control, value, _status, group) {
     if(value > 0)
+    {
+        let oldGroup = PioneerDDJFLX6.deckControlR;
         PioneerDDJFLX6.deckControlR = group;
+        if(this.mergeFxEnabled[group] && !this.mergeFxEnabled[oldGroup])
+        {
+            this.startLEDBlink(0xB5, 0x10);
+        }
+        else if(!this.mergeFxEnabled[group] && this.mergeFxEnabled[oldGroup])
+        {
+            this.stopLEDBlink(0xB5,0x10);
+            midi.sendShortMsg(0xB5,0x10,0x7F);
+        }
+    }
 };
 
 PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _status, group) {
     if(value == 0)
         return;
+    console.log("mergeEffectButtonPressed group: "+group);
     var newGroup = "";
     switch(group)
     {
