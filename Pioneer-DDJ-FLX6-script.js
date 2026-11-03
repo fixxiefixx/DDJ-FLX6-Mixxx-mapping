@@ -28,8 +28,7 @@
 //                ON/OFF toggles focused effect slot
 //                SHIFT + ON/OFF disables all three effect slots.
 //
-//      * 32 beat jump forward & back (Shift + </> CUE/LOOP CALL arrows)
-//      * Toggle quantize (Shift + channel cue)
+//      * Toggle quantize (Shift + Beat Sync)
 //
 //  Not implemented (after discussion and trial attempts):
 //      * Loop Section:
@@ -59,107 +58,11 @@ PioneerDDJFLX6.lights = {
             status: 0xB0,
             data1: 0x02,
         },
-        playPause: {
-            status: 0x90,
-            data1: 0x0B,
-        },
-        shiftPlayPause: {
-            status: 0x90,
-            data1: 0x47,
-        },
-        cue: {
-            status: 0x90,
-            data1: 0x0C,
-        },
-        shiftCue: {
-            status: 0x90,
-            data1: 0x48,
-        },
-        hotcueMode: {
-            status: 0x90,
-            data1: 0x1B,
-        },
-        keyboardMode: {
-            status: 0x90,
-            data1: 0x69,
-        },
-        padFX1Mode: {
-            status: 0x90,
-            data1: 0x1E,
-        },
-        padFX2Mode: {
-            status: 0x90,
-            data1: 0x6B,
-        },
-        beatJumpMode: {
-            status: 0x90,
-            data1: 0x20,
-        },
-        beatLoopMode: {
-            status: 0x90,
-            data1: 0x6D,
-        },
-        samplerMode: {
-            status: 0x90,
-            data1: 0x22,
-        },
-        keyShiftMode: {
-            status: 0x90,
-            data1: 0x6F,
-        },
     },
     deck2: {
         vuMeter: {
-            status: 0xB0,
+            status: 0xB1,
             data1: 0x02,
-        },
-        playPause: {
-            status: 0x91,
-            data1: 0x0B,
-        },
-        shiftPlayPause: {
-            status: 0x91,
-            data1: 0x47,
-        },
-        cue: {
-            status: 0x91,
-            data1: 0x0C,
-        },
-        shiftCue: {
-            status: 0x91,
-            data1: 0x48,
-        },
-        hotcueMode: {
-            status: 0x91,
-            data1: 0x1B,
-        },
-        keyboardMode: {
-            status: 0x91,
-            data1: 0x69,
-        },
-        padFX1Mode: {
-            status: 0x91,
-            data1: 0x1E,
-        },
-        padFX2Mode: {
-            status: 0x91,
-            data1: 0x6B,
-        },
-        beatJumpMode: {
-            status: 0x91,
-            data1: 0x20,
-        },
-        beatLoopMode: {
-            status: 0x91,
-            data1: 0x6D,
-        },
-        samplerMode: {
-            status: 0x91,
-            data1: 0x22,
-        },
-        keyShiftMode: {
-            status: 0x91,
-            data1: 0x6F,
         },
     },
 	deck3: {
@@ -167,107 +70,11 @@ PioneerDDJFLX6.lights = {
             status: 0xB2,
             data1: 0x02,
         },
-        playPause: {
-            status: 0xB2,
-            data1: 0x0B,
-        },
-        shiftPlayPause: {
-            status: 0xB2,
-            data1: 0x47,
-        },
-        cue: {
-            status: 0xB2,
-            data1: 0x0C,
-        },
-        shiftCue: {
-            status: 0xB2,
-            data1: 0x48,
-        },
-        hotcueMode: {
-            status: 0xB2,
-            data1: 0x1B,
-        },
-        keyboardMode: {
-            status: 0xB2,
-            data1: 0x69,
-        },
-        padFX1Mode: {
-            status: 0xB2,
-            data1: 0x1E,
-        },
-        padFX2Mode: {
-            status: 0xB2,
-            data1: 0x6B,
-        },
-        beatJumpMode: {
-            status: 0xB2,
-            data1: 0x20,
-        },
-        beatLoopMode: {
-            status: 0xB2,
-            data1: 0x6D,
-        },
-        samplerMode: {
-            status: 0xB2,
-            data1: 0x22,
-        },
-        keyShiftMode: {
-            status: 0xB2,
-            data1: 0x6F,
-        },
     },
     deck4: {
         vuMeter: {
             status: 0xB3,
             data1: 0x02,
-        },
-        playPause: {
-            status: 0xB3,
-            data1: 0x0B,
-        },
-        shiftPlayPause: {
-            status: 0xB3,
-            data1: 0x47,
-        },
-        cue: {
-            status: 0xB3,
-            data1: 0x0C,
-        },
-        shiftCue: {
-            status: 0xB3,
-            data1: 0x48,
-        },
-        hotcueMode: {
-            status: 0xB3,
-            data1: 0x1B,
-        },
-        keyboardMode: {
-            status: 0xB3,
-            data1: 0x69,
-        },
-        padFX1Mode: {
-            status: 0xB3,
-            data1: 0x1E,
-        },
-        padFX2Mode: {
-            status: 0xB3,
-            data1: 0x6B,
-        },
-        beatJumpMode: {
-            status: 0xB3,
-            data1: 0x20,
-        },
-        beatLoopMode: {
-            status: 0xB3,
-            data1: 0x6D,
-        },
-        samplerMode: {
-            status: 0xB3,
-            data1: 0x22,
-        },
-        keyShiftMode: {
-            status: 0xB3,
-            data1: 0x6F,
         },
     },
 };
@@ -275,20 +82,30 @@ PioneerDDJFLX6.lights = {
 // Store timer IDs
 PioneerDDJFLX6.timers = {};
 
-// Keep alive timer
-PioneerDDJFLX6.sendKeepAlive = function() {
-    midi.sendSysexMsg([0xF0, 0x00, 0x40, 0x05, 0x00, 0x00, 0x04, 0x05, 0x00, 0x50, 0x02, 0xf7], 12); // This was reverse engineered with Wireshark
-};
-
 // Jog wheel constants
-PioneerDDJFLX6.vinylMode = true;
 PioneerDDJFLX6.alpha = 1.0/8;
 PioneerDDJFLX6.beta = PioneerDDJFLX6.alpha/32;
 
+// Scratching is only ended once the wheel has stopped (so a back spin can run out).
+// The wheel counts as stopped after scratchStopTime ms without a tick; if it is
+// already stopped on release, scratching ends at once.
+// scratchMaxReleaseTime is the upper limit for waiting.
+PioneerDDJFLX6.scratchStopTime = 50;
+PioneerDDJFLX6.scratchMaxReleaseTime = 3000;
+PioneerDDJFLX6.jogLastTick = [0, 0, 0, 0];
+PioneerDDJFLX6.scratchReleaseTimers = [undefined, undefined, undefined, undefined];
+
 // Multiplier for fast seek through track using SHIFT+JOGWHEEL
-PioneerDDJFLX6.fastSeekScale = 150;
+PioneerDDJFLX6.fastSeekScale = 50;
 PioneerDDJFLX6.bendScale = 0.4;
 PioneerDDJFLX6.bendScaleMergeFxKnop = 0.2;
+
+// Release FX (spinback), done with engine.brake() and a negative start rate
+// (engine.spinback() negates the factor, which makes the reverse speed grow).
+// factor = how fast the spinback slows down (about 2.4 s at 1, 1.7 s at 5,
+// 1.3 s at 10, 0.8 s at 30), rate = start speed (negative = reverse)
+PioneerDDJFLX6.spinbackFactor = 5;
+PioneerDDJFLX6.spinbackRate = -10;
 
 PioneerDDJFLX6.tempoRanges = [0.06, 0.10, 0.16, 0.25];
 
@@ -310,8 +127,6 @@ PioneerDDJFLX6.beatjumpSizeForPad = {
     0x26: -8, // PAD 7
     0x27: 8   // PAD 8
 };
-
-PioneerDDJFLX6.quickJumpSize = 32;
 
 // Used for tempo slider
 PioneerDDJFLX6.highResMSB = {
@@ -441,15 +256,10 @@ PioneerDDJFLX6.init = function() {
     engine.makeConnection("[Channel4]", "loop_enabled", PioneerDDJFLX6.loopToggle);
 
     
-    for (i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 3; i++) {
         engine.makeConnection("[EffectRack1_EffectUnit1_Effect" + i +"]", "enabled", PioneerDDJFLX6.toggleFxLight);
         engine.makeConnection("[EffectRack1_EffectUnit2_Effect" + i +"]", "enabled", PioneerDDJFLX6.toggleFxLight);
     }
-    
-    //engine.makeConnection("[EffectRack1_EffectUnit1]", "focused_effect", PioneerDDJFLX6.toggleFxLight);
-    
-
-    //PioneerDDJFLX6.keepAliveTimer = engine.beginTimer(200, PioneerDDJFLX6.sendKeepAlive,true);
 
     // query the controller for current control positions on startup
     var ControllerStatusSysex = [0xF0, 0x00, 0x20, 0x7F, 0x03, 0x01, 0xF7];
@@ -457,6 +267,28 @@ PioneerDDJFLX6.init = function() {
     // midi controller will send the status of every item on the
     // control surface. (Mixxx will be initialized with current values)
     midi.sendSysexMsg(ControllerStatusSysex, ControllerStatusSysex.length);
+};
+
+//
+// Browser
+//
+// Sidebar = 2 in [Library] focused_widget.
+// GoToItem expands/collapses a selected parent item (e.g. the crate list) and
+// moves to the track list when a leaf item is selected.
+//
+
+PioneerDDJFLX6.sidebarFocused = function() {
+    return engine.getValue("[Library]", "focused_widget") === 2;
+};
+
+PioneerDDJFLX6.browsePressed = function(_channel, _control, value) {
+    if (value === 0) { return; }
+
+    if (PioneerDDJFLX6.sidebarFocused()) {
+        script.triggerControl("[Library]", "GoToItem", 100);
+    } else {
+        script.triggerControl("[Library]", "MoveFocusBackward", 100);
+    }
 };
 
 //
@@ -497,7 +329,6 @@ PioneerDDJFLX6.vuMeterUpdate = function(value, group) {
 };
 
 PioneerDDJFLX6.fxSelected = function(_channel, _control, value, status, group){
-    console.log("fxSelected group: "+group+" value: "+value);
     if(value === 0x7f)
     {
         var oldValue = 0;
@@ -510,15 +341,9 @@ PioneerDDJFLX6.fxSelected = function(_channel, _control, value, status, group){
         PioneerDDJFLX6.fxSelect = group;
         engine.setValue(group,"enabled",oldValue);
     }
-    else
-    {
-        //engine.setValue(group,"mix",0);
-        //engine.setValue(group,"enabled", 0);
-    }
 };
 
 PioneerDDJFLX6.fxEnabled= function(_channel, _control, value, status, group){
-    console.log("fxEnabled group: "+group+" value: "+value);
     var effects = [
         "[EffectRack1_EffectUnit1_Effect1]",
         "[EffectRack1_EffectUnit1_Effect2]",
@@ -547,7 +372,6 @@ PioneerDDJFLX6.fxEnabled= function(_channel, _control, value, status, group){
                 if(engine.getValue(effects[i],"enabled") > 0)
                     engine.setValue(effects[i],"enabled",0);
             }
-            //PioneerDDJFLX6.fxSelect = "";
         }
         else
         {
@@ -619,8 +443,6 @@ PioneerDDJFLX6.playPositionUpdate = function(value, group){
 //
 
 PioneerDDJFLX6.toggleFxLight = function(value, group, _control) {
-    //const enabled = engine.getValue(PioneerDDJFLX6.focusedFxGroup(), "enabled");
-    console.log("toggleFxLight group: "+group+" fxSelect: "+PioneerDDJFLX6.fxSelect);
     var lightData = null;
     switch(group)
     {
@@ -647,7 +469,6 @@ PioneerDDJFLX6.toggleFxLight = function(value, group, _control) {
         return; 
     var enabled = value >= 0.5;
     PioneerDDJFLX6.toggleLight(lightData, enabled);
-    //PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.shiftBeatFx, enabled);
 };
 
 PioneerDDJFLX6.focusedFxGroup = function() {
@@ -655,30 +476,30 @@ PioneerDDJFLX6.focusedFxGroup = function() {
     return "[EffectRack1_EffectUnit1_Effect" + focusedFx + "]";
 };
 
-PioneerDDJFLX6.beatFxLevelDepthRotate = function(_channel, _control, value) {
-    if (PioneerDDJFLX6.shiftButtonDown[0] || PioneerDDJFLX6.shiftButtonDown[1] || PioneerDDJFLX6.shiftButtonDown[2] || PioneerDDJFLX6.shiftButtonDown[3]) {
-        engine.softTakeoverIgnoreNextValue("[EffectRack1_EffectUnit1]", "mix");
-        engine.setParameter(PioneerDDJFLX6.focusedFxGroup(), "meta", value / 0x7F);
-    } else {
-        engine.softTakeoverIgnoreNextValue(PioneerDDJFLX6.focusedFxGroup(), "meta");
-        engine.setParameter("[EffectRack1_EffectUnit1]", "mix", value / 0x7F);
-    }
+//
+// BEAT FX LEVEL/DEPTH knob
+//
+// Every Beat FX slot has its own 14-bit CC pair (MSB 0xB4 0x02/0x04/0x06,
+// LSB = MSB + 0x20). The group of each binding is the slot's effect.
+// Without SHIFT the knob sets the meta (depth) of the slot's effect, with SHIFT
+// it sets the mix (level) of the effect unit.
+//
+
+PioneerDDJFLX6.beatFxKnobHigh = {};
+
+PioneerDDJFLX6.beatFxKnobMSB = function(_channel, _control, value, _status, group) {
+    PioneerDDJFLX6.beatFxKnobHigh[group] = value;
 };
 
-PioneerDDJFLX6.changeFocusedEffectBy = function(numberOfSteps) {
-    let focusedEffect = engine.getValue("[EffectRack1_EffectUnit1]", "focused_effect");
+PioneerDDJFLX6.beatFxKnobLSB = function(_channel, _control, value, _status, group) {
+    const fullValue = ((PioneerDDJFLX6.beatFxKnobHigh[group] || 0) << 7) + value;
+    const shiftDown = PioneerDDJFLX6.shiftButtonDown.some(function(down) { return down; });
 
-    // Convert to zero-based index
-    focusedEffect -= 1;
-
-    // Standard Euclidean modulo by use of two plain modulos
-    const numberOfEffectsPerEffectUnit = 3;
-    focusedEffect = (((focusedEffect + numberOfSteps) % numberOfEffectsPerEffectUnit) + numberOfEffectsPerEffectUnit) % numberOfEffectsPerEffectUnit;
-
-    // Convert back to one-based index
-    focusedEffect += 1;
-
-    engine.setValue("[EffectRack1_EffectUnit1]", "focused_effect", focusedEffect);
+    if (shiftDown) {
+        engine.setParameter("[EffectRack1_EffectUnit1]", "mix", fullValue / 0x3FFF);
+    } else {
+        engine.setParameter(group, "meta", fullValue / 0x3FFF);
+    }
 };
 
 PioneerDDJFLX6.beatFxSelectPressed = function(_channel, _control, value) {
@@ -696,7 +517,6 @@ PioneerDDJFLX6.beatFxSelectShiftPressed = function(_channel, _control, value) {
 PioneerDDJFLX6.beatFxLeftPressed = function(_channel, _control, value) {
     if (value === 0) { return; }
 
-    //PioneerDDJFLX6.changeFocusedEffectBy(-1);
     if(this.fxSelect == "")
         return;
 
@@ -706,31 +526,37 @@ PioneerDDJFLX6.beatFxLeftPressed = function(_channel, _control, value) {
 PioneerDDJFLX6.beatFxRightPressed = function(_channel, _control, value) {
     if (value === 0) { return; }
 
-    //PioneerDDJFLX6.changeFocusedEffectBy(1);
     if(this.fxSelect == "")
         return;
-    console.log("beatFxRightPressed fxSelected: "+this.fxSelect);
     engine.setValue(this.fxSelect,"effect_selector",1);
 };
 
-PioneerDDJFLX6.beatFxOnOffPressed = function(_channel, _control, value) {
-    if (value === 0) { return; }
+//
+// RELEASE FX (SHIFT + BEAT FX ON/OFF)
+//
+// Spins back the playing decks that are assigned to effect unit 1 with
+// CH SELECT. Releasing the button cancels the spinback.
+//
 
-    const toggleEnabled = !engine.getValue(PioneerDDJFLX6.focusedFxGroup(), "enabled");
-    engine.setValue(PioneerDDJFLX6.focusedFxGroup(), "enabled", toggleEnabled);
-};
+PioneerDDJFLX6.spinbackDecks = [];
 
-PioneerDDJFLX6.beatFxOnOffShiftPressed = function(_channel, _control, value) {
-    if (value === 0) { return; }
-
-    engine.setParameter("[EffectRack1_EffectUnit1]", "mix", 0);
-    engine.softTakeoverIgnoreNextValue("[EffectRack1_EffectUnit1]", "mix");
-
-    for (let i = 1; i <= 3; i++) {
-        engine.setValue("[EffectRack1_EffectUnit1_Effect" + i + "]", "enabled", 0);
+PioneerDDJFLX6.releaseFxPressed = function(_channel, _control, value) {
+    if (value === 0) {
+        PioneerDDJFLX6.spinbackDecks.forEach(function(deck) {
+            engine.brake(deck, false);
+        });
+        PioneerDDJFLX6.spinbackDecks = [];
+        return;
     }
-    PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.beatFx, false);
-    PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.shiftBeatFx, false);
+
+    for (let deck = 1; deck <= 4; deck++) {
+        const channel = "[Channel" + deck + "]";
+        if (engine.getValue("[EffectRack1_EffectUnit1]", "group_" + channel + "_enable") &&
+                engine.getValue(channel, "play")) {
+            engine.brake(deck, true, PioneerDDJFLX6.spinbackFactor, PioneerDDJFLX6.spinbackRate);
+            PioneerDDJFLX6.spinbackDecks.push(deck);
+        }
+    }
 };
 
 PioneerDDJFLX6.beatFxChannel1 = function(_channel, control, value, _status, group) {
@@ -767,12 +593,6 @@ PioneerDDJFLX6.toggleLoopAdjustOut = function(channel, _control, value, _status,
     }
     PioneerDDJFLX6.loopAdjustOut[channel] = !PioneerDDJFLX6.loopAdjustOut[channel];
     PioneerDDJFLX6.loopAdjustIn[channel] = false;
-};
-
-// Two signals are sent here so that the light stays lit/unlit in its shift state too
-PioneerDDJFLX6.setReloopLight = function(status, value) {
-    midi.sendShortMsg(status, 0x4D, value);
-    midi.sendShortMsg(status, 0x50, value);
 };
 
 
@@ -848,8 +668,6 @@ PioneerDDJFLX6.loopToggle = function(value, group, control) {
             return; // Exit if group doesn't match any case
     }
 
-    PioneerDDJFLX6.setReloopLight(status, value ? 0x7F : 0x00);
-
     if (value) {
         PioneerDDJFLX6.startLoopLightsBlink(channel, control, status, group);
     } else {
@@ -872,27 +690,6 @@ PioneerDDJFLX6.cueLoopCallLeft = function(_channel, _control, value, _status, gr
 PioneerDDJFLX6.cueLoopCallRight = function(_channel, _control, value, _status, group) {
     if (value) {
         engine.setValue(group, "loop_scale", 2.0);
-    }
-};
-
-//
-// BEAT SYNC
-//
-// Note that the controller sends different signals for a short press and a long
-// press of the same button.
-//
-
-PioneerDDJFLX6.syncPressed = function(channel, control, value, status, group) {
-    if (engine.getValue(group, "sync_enabled") && value > 0) {
-        engine.setValue(group, "sync_enabled", 0);
-    } else {
-        engine.setValue(group, "beatsync", value);
-    }
-};
-
-PioneerDDJFLX6.syncLongPressed = function(channel, control, value, status, group) {
-    if (value) {
-        engine.setValue(group, "sync_enabled", 1);
     }
 };
 
@@ -945,6 +742,7 @@ PioneerDDJFLX6.jogTurn = function(channel, _control, value, _status, group) {
     }
 
     if (engine.isScratching(deckNum)) {
+        PioneerDDJFLX6.jogLastTick[channel] = Date.now();
         engine.scratchTick(deckNum, newVal);
     } else { // fallback
         engine.setValue(group, "jog", newVal * this.bendScale);
@@ -1004,10 +802,6 @@ PioneerDDJFLX6.mergeFxTurn = function(channel, _control, value, _status, group) 
         {
             let superValue = engine.getValue("[QuickEffectRack1_"+newGroup+"]","super1");
             superValue += diff * 0.001;
-            if(diff < 0)
-                diff = 0;
-            if(diff > 1)
-                diff = 1;
             engine.setValue("[QuickEffectRack1_"+newGroup+"]","super1",superValue);
         }
     }
@@ -1045,7 +839,6 @@ PioneerDDJFLX6.mergeFxTurnShift = function(channel, _control, value, _status, gr
         superValue = -12.0;
     if(superValue > 12.0)
         superValue = 12.0;
-    //console.log("adjusting pitch to " + superValue);
     engine.setValue(newGroup,"pitch",superValue);
 
 
@@ -1089,7 +882,6 @@ PioneerDDJFLX6.deckControlRPressed = function(channel, _control, value, _status,
 PioneerDDJFLX6.mergeEffectButtonPressed = function(channel, _control, value, _status, group) {
     if(value == 0)
         return;
-    console.log("mergeEffectButtonPressed group: "+group);
     var newGroup = "";
     switch(group)
     {
@@ -1160,9 +952,6 @@ PioneerDDJFLX6.mergeEffectButtonPressedShift = function(channel, _control, value
 };
 
 PioneerDDJFLX6.padFxPressed = function(channel, control, value, status, group){
-    //if(value == 0)
-    //    return;
-    console.log("padFxPressed channel: "+channel+" control: "+control);
     let groupPreset = group.split(";");
     if(groupPreset.length < 2)
         return;
@@ -1189,7 +978,6 @@ PioneerDDJFLX6.padFxPressed = function(channel, control, value, status, group){
     {
         if(enabled)
         {
-            //this.stopMergeFx(side, groupPreset[0]);
             engine.setValue("[QuickEffectRack1_"+groupPreset[0]+"]","loaded_chain_preset",groupPreset[1]);
         }
         else
@@ -1217,7 +1005,6 @@ PioneerDDJFLX6.startMergeFx = function(side, group, preset){
 
     engine.setValue("[QuickEffectRack1_"+group+"]","loaded_chain_preset",preset);
     engine.setValue("[QuickEffectRack1_"+group+"]","enabled",1);
-    // midi.sendShortMsg(0xB4,0x10,0x7F);
     this.startLEDBlink(side == "L" ? 0xB4 : 0xB5, 0x10);
     this.mergeFxEnabled[group] = true;
 }
@@ -1300,11 +1087,38 @@ PioneerDDJFLX6.jogTouch = function(channel, _control, value) {
         return;
     }
 
-    if (value !== 0 && this.vinylMode) {
-        engine.scratchEnable(deckNum, 720*10, 33+1/3, this.alpha, this.beta);
+    if (value !== 0) {
+        if (PioneerDDJFLX6.scratchReleaseTimers[channel] !== undefined) {
+            // touched again while waiting for the wheel to stop: keep scratching
+            engine.stopTimer(PioneerDDJFLX6.scratchReleaseTimers[channel]);
+            PioneerDDJFLX6.scratchReleaseTimers[channel] = undefined;
+        } else {
+            engine.scratchEnable(deckNum, 720*10, 33+1/3, this.alpha, this.beta);
+        }
+    } else if (Date.now() - PioneerDDJFLX6.jogLastTick[channel] < PioneerDDJFLX6.scratchStopTime) {
+        // the wheel is still moving (e.g. a back spin): wait until it has stopped
+        PioneerDDJFLX6.waitForWheelStop(channel);
     } else {
         engine.scratchDisable(deckNum);
     }
+};
+
+PioneerDDJFLX6.waitForWheelStop = function(channel) {
+    const deckNum = channel + 1;
+    const startTime = Date.now();
+
+    if (PioneerDDJFLX6.scratchReleaseTimers[channel] !== undefined) {
+        engine.stopTimer(PioneerDDJFLX6.scratchReleaseTimers[channel]);
+    }
+    PioneerDDJFLX6.scratchReleaseTimers[channel] = engine.beginTimer(25, () => {
+        const now = Date.now();
+        if (now - PioneerDDJFLX6.jogLastTick[channel] >= PioneerDDJFLX6.scratchStopTime ||
+                now - startTime >= PioneerDDJFLX6.scratchMaxReleaseTime) {
+            engine.stopTimer(PioneerDDJFLX6.scratchReleaseTimers[channel]);
+            PioneerDDJFLX6.scratchReleaseTimers[channel] = undefined;
+            engine.scratchDisable(deckNum);
+        }
+    });
 };
 
 //
@@ -1381,67 +1195,31 @@ PioneerDDJFLX6.decreaseBeatjumpSizes = function(_channel, control, value, _statu
 PioneerDDJFLX6.samplerPlayOutputCallbackFunction = function(value, group, _control) {
     if (value === 1) {
         const curPad = group.match(script.samplerRegEx)[1];
-        let deckIndex = 0;
+        // Samplers 1-4 and 9-12 are on the left pads (decks 1 and 3),
+        // samplers 5-8 and 13-16 on the right pads (decks 2 and 4).
+        let padStatuses = [0x97, 0x9B];
         let padIndex = 0;
 
         if (curPad >=1 && curPad <= 4) {
-            deckIndex = 0;
+            padStatuses = [0x97, 0x9B];
             padIndex = curPad - 1;
         } else if (curPad >=5 && curPad <= 8) {
-            deckIndex = 2;
+            padStatuses = [0x99, 0x9D];
             padIndex = curPad - 5;
         } else if (curPad >=9 && curPad <= 12) {
-            deckIndex = 0;
+            padStatuses = [0x97, 0x9B];
             padIndex = curPad - 5;
         } else if (curPad >=13 && curPad <= 16) {
-            deckIndex = 2;
+            padStatuses = [0x99, 0x9D];
             padIndex = curPad - 9;
         }
 
-        PioneerDDJFLX6.startSamplerBlink(
-            0x97 + deckIndex,
-            0x30 + padIndex,
-            group);
-    }
-};
-
-PioneerDDJFLX6.padModeKeyPressed = function(_channel, _control, value, _status, _group) {
-    let deck;
-
-	switch (_status) {
-		case 0x90:
-			deck = PioneerDDJFLX6.lights.deck1;
-			break;
-		case 0x91:
-			deck = PioneerDDJFLX6.lights.deck2;
-			break;
-		case 0x92:
-			deck = PioneerDDJFLX6.lights.deck3;
-			break;
-		case 0x93:
-			deck = PioneerDDJFLX6.lights.deck4;
-			break;
-		default:
-			console.error("Unknown status: " + _status);
-			return;
-	}
-
-    if (_control === 0x1B) {
-        PioneerDDJFLX6.toggleLight(deck.hotcueMode, true);
-    } else if (_control === 0x69) {
-        PioneerDDJFLX6.toggleLight(deck.keyboardMode, true);
-    } else if (_control === 0x1E) {
-        PioneerDDJFLX6.toggleLight(deck.padFX1Mode, true);
-    } else if (_control === 0x6B) {
-        PioneerDDJFLX6.toggleLight(deck.padFX2Mode, true);
-    } else if (_control === 0x20) {
-        PioneerDDJFLX6.toggleLight(deck.beatJumpMode, true);
-    } else if (_control === 0x6D) {
-        PioneerDDJFLX6.toggleLight(deck.beatLoopMode, true);
-    } else if (_control === 0x22) {
-        PioneerDDJFLX6.toggleLight(deck.samplerMode, true);
-    } else if (_control === 0x6F) {
-        PioneerDDJFLX6.toggleLight(deck.keyShiftMode, true);
+        padStatuses.forEach(function(padStatus) {
+            PioneerDDJFLX6.startSamplerBlink(
+                padStatus,
+                0x30 + padIndex,
+                group);
+        });
     }
 };
 
@@ -1513,22 +1291,18 @@ PioneerDDJFLX6.stopLEDBlink = function(channel, control) {
 };
 
 
-PioneerDDJFLX6.toggleQuantize = function(_channel, _control, value, _status, group) {
+PioneerDDJFLX6.viewPressed = function(_channel, _control, value, _status, group) {
     if (value) {
-        script.toggleControl(group, "quantize");
+        script.toggleControl(group, "show_maximized_library");
     }
 };
 
-PioneerDDJFLX6.quickJumpForward = function(_channel, _control, value, _status, group) {
-    if (value) {
-        engine.setValue(group, "beatjump", PioneerDDJFLX6.quickJumpSize);
-    }
-};
+PioneerDDJFLX6.sortPressed = function(_channel, _control, value, _status, group) {
+    if (value === 0) { return; }
 
-PioneerDDJFLX6.quickJumpBack = function(_channel, _control, value, _status, group) {
-    if (value) {
-        engine.setValue(group, "beatjump", -PioneerDDJFLX6.quickJumpSize);
-    }
+    const groupKeyValue = group.split(";");
+    if (groupKeyValue.length < 3) { return; }
+    engine.setValue(groupKeyValue[0], groupKeyValue[1], parseInt(groupKeyValue[2]));
 };
 
 //
@@ -1567,11 +1341,6 @@ PioneerDDJFLX6.shutdown = function() {
     PioneerDDJFLX6.setLoopButtonLights(0x91, 0x00);
     PioneerDDJFLX6.setLoopButtonLights(0x92, 0x00);
     PioneerDDJFLX6.setLoopButtonLights(0x93, 0x00);
-    // turn off reloop lights
-    PioneerDDJFLX6.setReloopLight(0x90, 0x00);
-    PioneerDDJFLX6.setReloopLight(0x91, 0x00);
-	PioneerDDJFLX6.setReloopLight(0x92, 0x00);
-    PioneerDDJFLX6.setReloopLight(0x93, 0x00);
 
     // turn off jogwheel lights
     midi.sendShortMsg(0xBB, 0x00, 0x00);
@@ -1582,7 +1351,4 @@ PioneerDDJFLX6.shutdown = function() {
     // stop any flashing lights
     PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.beatFx, false);
     PioneerDDJFLX6.toggleLight(PioneerDDJFLX6.lights.shiftBeatFx, false);
-
-    // stop the keepalive timer
-    engine.stopTimer(PioneerDDJFLX6.keepAliveTimer);
 };

@@ -3,8 +3,8 @@
     <info>
         <name>Pioneer DDJ-FLX6</name>
         <author>Robert904</author>
-        <description>Midi Mapping for the Pioneer DDJ-FLX4 (based on DDJ-400 mapping)</description>
-        <forums>https://mixxx.discourse.group/t/pioneer-ddj-flx4</forums>
+        <description>Midi Mapping for the Pioneer DDJ-FLX6 (based on the DDJ-FLX4 mapping)</description>
+        <forums>https://mixxx.discourse.group/t/ddj-flx6-and-mixxx/24714</forums>
     </info>
     <settings>
         <group label="MERGE FX knobs">
@@ -307,12 +307,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect1]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 322 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobMSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 1) - turn - meta, with SHIFT mix (MSB)</description>
                 <status>0xB4</status>
                 <midino>0x02</midino>
                 <options>
-                    <fourteen-bit-msb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -527,12 +527,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect2]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 236 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobMSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 2) - turn - meta, with SHIFT mix (MSB)</description>
                 <status>0xB4</status>
                 <midino>0x04</midino>
                 <options>
-                    <fourteen-bit-msb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -727,12 +727,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect3]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 224 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobMSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 3) - turn - meta, with SHIFT mix (MSB)</description>
                 <status>0xB4</status>
                 <midino>0x06</midino>
                 <options>
-                    <fourteen-bit-msb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1618,46 +1618,6 @@
                 </options>
             </control>
             <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>HOT CUE MODE (DECK1) - press - set hotcue mode</description>
-                <status>0x90</status>
-                <midino>0x1B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>HOT CUE MODE (DECK2) - press - set hotcue mode</description>
-                <status>0x91</status>
-                <midino>0x1B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>HOT CUE MODE (DECK3) - press - set hotcue mode</description>
-                <status>0x92</status>
-                <midino>0x1B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>HOT CUE MODE (DECK4) - press - set hotcue mode</description>
-                <status>0x93</status>
-                <midino>0x1B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[EffectRack1_EffectUnit1];group_[Channel1]_enable</group>
                 <key>PioneerDDJFLX6.setGroupKey</key>
                 <description>CH Select FX1 CH1</description>
@@ -1693,46 +1653,6 @@
                 <description>CH Select FX2 CH2</description>
                 <status>0x95</status>
                 <midino>0x1D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX1 MODE (DECK1) - press - set pad fx1 mode</description>
-                <status>0x90</status>
-                <midino>0x1E</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX1 MODE (DECK2) - press - set pad fx1 mode</description>
-                <status>0x91</status>
-                <midino>0x1E</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX1 MODE (DECK3) - press - set pad fx1 mode</description>
-                <status>0x92</status>
-                <midino>0x1E</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX1 MODE (DECK4) - press - set pad fx1 mode</description>
-                <status>0x93</status>
-                <midino>0x1E</midino>
                 <options>
                     <script-binding/>
                 </options>
@@ -1785,46 +1705,6 @@
                 <midino>0x1F</midino>
                 <options>
                     <fourteen-bit-msb/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT JUMP MODE (DECK1) - press - set beat jump mode</description>
-                <status>0x90</status>
-                <midino>0x20</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT JUMP MODE (DECK2) - press - set beat jump mode</description>
-                <status>0x91</status>
-                <midino>0x20</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT JUMP MODE (DECK3) - press - set beat jump mode</description>
-                <status>0x92</status>
-                <midino>0x20</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT JUMP MODE (DECK4) - press - set beat jump mode</description>
-                <status>0x93</status>
-                <midino>0x20</midino>
-                <options>
-                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -1988,46 +1868,6 @@
                 </options>
             </control>
             <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>SAMPLER MODE (DECK1) - press - set sampler mode</description>
-                <status>0x90</status>
-                <midino>0x22</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>SAMPLER MODE (DECK2) - press - set sampler mode</description>
-                <status>0x91</status>
-                <midino>0x22</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>SAMPLER MODE (DECK3) - press - set sampler mode</description>
-                <status>0x92</status>
-                <midino>0x22</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>SAMPLER MODE (DECK4) - press - set sampler mode</description>
-                <status>0x93</status>
-                <midino>0x22</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[Channel1]</group>
                 <key>PioneerDDJFLX6.beatjumpPadPressed</key>
                 <description>PAD 3 (DECK1) BEAT JUMP MODE - press - Jump 2 Beats backwards</description>
@@ -2109,12 +1949,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect1]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 322 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobLSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 1) - turn - meta, with SHIFT mix (LSB)</description>
                 <status>0xB4</status>
                 <midino>0x22</midino>
                 <options>
-                    <fourteen-bit-lsb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2289,12 +2129,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect2]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 236 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobLSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 2) - turn - meta, with SHIFT mix (LSB)</description>
                 <status>0xB4</status>
                 <midino>0x24</midino>
                 <options>
-                    <fourteen-bit-lsb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -2433,12 +2273,12 @@
             </control>
             <control>
                 <group>[EffectRack1_EffectUnit1_Effect3]</group>
-                <key>meta</key>
-                <description>MIDI Learned from 224 messages.</description>
+                <key>PioneerDDJFLX6.beatFxKnobLSB</key>
+                <description>BEAT FX LEVEL/DEPTH (slot 3) - turn - meta, with SHIFT mix (LSB)</description>
                 <status>0xB4</status>
                 <midino>0x26</midino>
                 <options>
-                    <fourteen-bit-lsb/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3641,46 +3481,6 @@
             </control>
             <control>
                 <group>[Channel1]</group>
-                <key>PioneerDDJFLX6.quickJumpBack</key>
-                <description>CUE/LOOP CALL LEFT + SHIFT (DECK1) - press - quick jump back</description>
-                <status>0x90</status>
-                <midino>0x61</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel2]</group>
-                <key>PioneerDDJFLX6.quickJumpBack</key>
-                <description>CUE/LOOP CALL LEFT + SHIFT (DECK2) - press - quick jump back</description>
-                <status>0x91</status>
-                <midino>0x61</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel3]</group>
-                <key>PioneerDDJFLX6.quickJumpBack</key>
-                <description>CUE/LOOP CALL LEFT + SHIFT (DECK3) - press - quick jump back</description>
-                <status>0x92</status>
-                <midino>0x61</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel4]</group>
-                <key>PioneerDDJFLX6.quickJumpBack</key>
-                <description>CUE/LOOP CALL LEFT + SHIFT (DECK4) - press - quick jump back</description>
-                <status>0x93</status>
-                <midino>0x61</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Channel1]</group>
                 <key>PioneerDDJFLX6.shiftPressed</key>
                 <description>Shift (DECK1)</description>
                 <status>0x90</status>
@@ -3777,12 +3577,12 @@
             </control>
             <control>
                 <group>[Library]</group>
-                <key>MoveFocusForward</key>
-                <description>BROWSE - press - Move cursor between track list and tree view</description>
+                <key>PioneerDDJFLX6.browsePressed</key>
+                <description>BROWSE - press - Expand/collapse the selected sidebar item or enter the track list; from the track list go back to the sidebar</description>
                 <status>0x96</status>
                 <midino>0x41</midino>
                 <options>
-                    <normal/>
+                    <script-binding/>
                 </options>
             </control>
             <control>
@@ -3819,16 +3619,6 @@
                 <midino>0x41</midino>
                 <options>
                     <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[Library]</group>
-                <key>MoveFocusBackward</key>
-                <description>BROWSE +SHIFT - press - Move cursor between track list and tree view</description>
-                <status>0x96</status>
-                <midino>0x42</midino>
-                <options>
-                    <normal/>
                 </options>
             </control>
             <control>
@@ -5258,166 +5048,6 @@
                 </options>
             </control>
             <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEYBOARD MODE (DECK1) - press - set keyboard mode</description>
-                <status>0x90</status>
-                <midino>0x69</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEYBOARD MODE (DECK2) - press - set keyboard mode</description>
-                <status>0x91</status>
-                <midino>0x69</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEYBOARD MODE (DECK3) - press - set keyboard mode</description>
-                <status>0x92</status>
-                <midino>0x69</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEYBOARD MODE (DECK4) - press - set keyboard mode</description>
-                <status>0x93</status>
-                <midino>0x69</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX2 MODE (DECK1) - press - set pad fx2 mode</description>
-                <status>0x90</status>
-                <midino>0x6B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX2 MODE (DECK2) - press - set pad fx2 mode</description>
-                <status>0x91</status>
-                <midino>0x6B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX2 MODE (DECK3) - press - set pad fx2 mode</description>
-                <status>0x92</status>
-                <midino>0x6B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>PAD FX2 MODE (DECK4) - press - set pad fx2 mode</description>
-                <status>0x93</status>
-                <midino>0x6B</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT LOOP MODE (DECK1) - press - set beat loop mode</description>
-                <status>0x90</status>
-                <midino>0x6D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT LOOP MODE (DECK2) - press - set beat loop mode</description>
-                <status>0x91</status>
-                <midino>0x6D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT LOOP MODE (DECK3) - press - set beat loop mode</description>
-                <status>0x92</status>
-                <midino>0x6D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>BEAT LOOP MODE (DECK4) - press - set beat loop mode</description>
-                <status>0x93</status>
-                <midino>0x6D</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEY SHIFT MODE (DECK1) - press - set key shift mode</description>
-                <status>0x90</status>
-                <midino>0x6F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEY SHIFT MODE (DECK2) - press - set key shift mode</description>
-                <status>0x91</status>
-                <midino>0x6F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEY SHIFT MODE (DECK3) - press - set key shift mode</description>
-                <status>0x92</status>
-                <midino>0x6F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
-                <group>[PadMode]</group>
-                <key>PioneerDDJFLX6.padModeKeyPressed</key>
-                <description>KEY SHIFT MODE (DECK4) - press - set key shift mode</description>
-                <status>0x93</status>
-                <midino>0x6F</midino>
-                <options>
-                    <script-binding/>
-                </options>
-            </control>
-            <control>
                 <group>[EffectRack1_EffectUnit1_Effect1]</group>
                 <key>PioneerDDJFLX6.fxSelected</key>
                 <status>0x94</status>
@@ -5611,6 +5241,116 @@
                 <key>PioneerDDJFLX6.setGroupKeyValue</key>
                 <status>0x99</status>
                 <midino>0x77</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel1]</group>
+                <key>bpm_tap</key>
+                <description>CUE Channel +SHIFT (DECK1) - press - Tap tempo</description>
+                <status>0x90</status>
+                <midino>0x68</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel2]</group>
+                <key>bpm_tap</key>
+                <description>CUE Channel +SHIFT (DECK2) - press - Tap tempo</description>
+                <status>0x91</status>
+                <midino>0x68</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel3]</group>
+                <key>bpm_tap</key>
+                <description>CUE Channel +SHIFT (DECK3) - press - Tap tempo</description>
+                <status>0x92</status>
+                <midino>0x68</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Channel4]</group>
+                <key>bpm_tap</key>
+                <description>CUE Channel +SHIFT (DECK4) - press - Tap tempo</description>
+                <status>0x93</status>
+                <midino>0x68</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[Skin]</group>
+                <key>PioneerDDJFLX6.viewPressed</key>
+                <description>VIEW - press - Toggle maximized library</description>
+                <status>0x96</status>
+                <midino>0x7A</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Library];sort_column_toggle;15</group>
+                <key>PioneerDDJFLX6.sortPressed</key>
+                <description>LOAD +SHIFT BPM (DECK1) - press - Sort library by BPM (press again to reverse)</description>
+                <status>0x96</status>
+                <midino>0x58</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Library];sort_column_toggle;2</group>
+                <key>PioneerDDJFLX6.sortPressed</key>
+                <description>LOAD +SHIFT title (DECK2) - press - Sort library by title (press again to reverse)</description>
+                <status>0x96</status>
+                <midino>0x59</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Library];sort_column_toggle;20</group>
+                <key>PioneerDDJFLX6.sortPressed</key>
+                <description>LOAD +SHIFT key (DECK3) - press - Sort library by key (press again to reverse)</description>
+                <status>0x96</status>
+                <midino>0x60</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Library];sort_column_toggle;1</group>
+                <key>PioneerDDJFLX6.sortPressed</key>
+                <description>LOAD +SHIFT artist (DECK4) - press - Sort library by artist (press again to reverse)</description>
+                <status>0x96</status>
+                <midino>0x61</midino>
+                <options>
+                    <script-binding/>
+                </options>
+            </control>
+            <control>
+                <group>[Library]</group>
+                <key>MoveFocusBackward</key>
+                <description>BACK - press - Move cursor between track list and sidebar</description>
+                <status>0x96</status>
+                <midino>0x65</midino>
+                <options>
+                    <normal/>
+                </options>
+            </control>
+            <control>
+                <group>[EffectRack1_EffectUnit1]</group>
+                <key>PioneerDDJFLX6.releaseFxPressed</key>
+                <description>BEAT FX ON/OFF +SHIFT - press - Spinback on the decks assigned to effect unit 1, release cancels</description>
+                <status>0x94</status>
+                <midino>0x43</midino>
                 <options>
                     <script-binding/>
                 </options>
